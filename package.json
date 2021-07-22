@@ -1,0 +1,19 @@
+{
+  "name": "backend-web-scraping",
+  "version": "1.0.0",
+  "description": "WebScraping",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IKokiri/Backend-Web-Scraping.git"
+  },
+  "author": "Luiz Mendes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IKokiri/Backend-Web-Scraping/issues"
+  },
+  "homepage": "https://github.com/IKokiri/Backend-Web-Scraping#readme"
+}
