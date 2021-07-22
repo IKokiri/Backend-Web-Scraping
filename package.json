@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/IKokiri/Backend-Web-Scraping#readme",
   "dependencies": {
+    "@types/node": "^16.4.1",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
   }
 }
