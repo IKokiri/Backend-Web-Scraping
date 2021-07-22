@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IKokiri/Backend-Web-Scraping/issues"
   },
-  "homepage": "https://github.com/IKokiri/Backend-Web-Scraping#readme"
+  "homepage": "https://github.com/IKokiri/Backend-Web-Scraping#readme",
+  "dependencies": {
+    "typescript": "^4.3.5"
+  }
 }
