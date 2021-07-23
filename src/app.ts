@@ -1,11 +1,12 @@
 import express from 'express';
 
+// Controllers routes
+import info from './controllers/info';
+
 const app = express();
 
 app.set('port', 9000);
 
-app.get('/', (req, res) => {
-    res.send('olá');
-});
+app.get('/', info);
 
 export default app;
