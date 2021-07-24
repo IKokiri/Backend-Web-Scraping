@@ -1,18 +1,38 @@
 import cheerio from 'cheerio';
 
-const scraper = (html: string): any => {
+type Notebook = {
+    description: string;
+    img: string;
+    model: string;
+    price: string;
+    ratting: string;
+};
+
+const scraper = (html: string): Array<Notebook> => {
+    const Notebooks: Array<Notebook> = [];
+
     const $ = cheerio.load(html);
     const sectionNotebooks = $('body').find('.thumbnail');
 
     sectionNotebooks.map((i, element) => {
-        console.log($(element).find('.title').attr('title'));
-        console.log($(element).find('.description').text());
-        console.log($(element).find('.ratings p').text());
-        console.log($(element).find('img').attr('src'));
-        console.log($(element).find('.price').text());
-        console.log('****************');
-        return 1;
+        const description = $(element).find('.description').text();
+        const img = $(element).find('img').attr('src')!;
+        const model = $(element).find('.title').attr('title')!;
+        const price = $(element).find('.price').text();
+        const ratting = $(element).find('.ratings p').text();
+
+        const notebookMap: Notebook = {
+            description,
+            img,
+            model,
+            price,
+            ratting,
+        };
+
+        return notebookMap;
     });
+
+    return Notebooks;
 };
 
 export default scraper;
