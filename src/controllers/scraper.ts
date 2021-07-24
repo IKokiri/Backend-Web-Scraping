@@ -1,5 +1,6 @@
 import cheerio from 'cheerio';
 import { Notebook } from '../types/notebook';
+import FormatWebScraperIo from '../utils/FormatWebScraperIo';
 
 const scraper = (html: string): Array<Notebook> => {
     const Notebooks: Array<Notebook> = [];
@@ -22,7 +23,7 @@ const scraper = (html: string): Array<Notebook> => {
             ratting,
         };
 
-        Notebooks.push(notebookMap);
+        Notebooks.push(FormatWebScraperIo(notebookMap));
 
         return notebookMap;
     });
