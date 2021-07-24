@@ -10,4 +10,4 @@ class FormatString {
     }
 }
 
-export default Format;
+export default FormatString;
