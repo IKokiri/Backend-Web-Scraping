@@ -22,6 +22,8 @@ const scraper = (html: string): Array<Notebook> => {
             ratting,
         };
 
+        Notebooks.push(notebookMap);
+
         return notebookMap;
     });
 
