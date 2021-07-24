@@ -1,9 +1,5 @@
 import { Notebook } from '../types/notebook';
 
-const FormatWebScraperIo = (notebook: Notebook): Notebook => {
-    return notebook;
-};
-
 function removeLastSpacesString(notebook: Notebook): Notebook {
     notebook.description = notebook.description.trim();
     notebook.img = notebook.img.trim();
@@ -13,5 +9,9 @@ function removeLastSpacesString(notebook: Notebook): Notebook {
 
     return notebook;
 }
+
+const FormatWebScraperIo = (notebook: Notebook): Notebook => {
+    return removeLastSpacesString(notebook);
+};
 
 export default FormatWebScraperIo;
