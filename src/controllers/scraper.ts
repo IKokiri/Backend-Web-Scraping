@@ -1,12 +1,5 @@
 import cheerio from 'cheerio';
-
-type Notebook = {
-    description: string;
-    img: string;
-    model: string;
-    price: string;
-    ratting: string;
-};
+import { Notebook } from '../types/notebook';
 
 const scraper = (html: string): Array<Notebook> => {
     const Notebooks: Array<Notebook> = [];
