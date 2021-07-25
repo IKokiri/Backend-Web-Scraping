@@ -7,8 +7,8 @@ const crawler = async (req: Request, res: Response) => {
     const html = await getPage('http://localhost:8000/pageMock.html');
 
     const notebooks: Array<Notebook> = scraper(html);
-    console.log(notebooks);
-    res.status(200).json({ status: notebooks });
+
+    res.status(200).json(notebooks);
 };
 
 export default crawler;
