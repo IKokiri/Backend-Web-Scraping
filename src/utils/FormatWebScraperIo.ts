@@ -1,4 +1,4 @@
-import { Notebook } from '../types/notebook';
+import Notebook from '../Entity/Notebook';
 
 function removeLastSpacesString(notebook: Notebook): Notebook {
     notebook.description = notebook.description.trim();

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import getPage from '../api/getPage';
-import { Notebook } from '../types/notebook';
+import Notebook from '../Entity/Notebook';
 import scraper from './scraper';
 
 const crawler = async (req: Request, res: Response) => {
