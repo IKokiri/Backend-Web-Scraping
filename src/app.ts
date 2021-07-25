@@ -1,8 +1,21 @@
+import { createConnection } from 'typeorm';
 import express from 'express';
 
 // Controllers routes
 import info from './controllers/info';
 import crawler from './controllers/crawler';
+import Notebook from './Entity/Notebook';
+
+/**
+ * database connector
+ */
+createConnection({
+    type: 'sqlite',
+    database: 'backendwebscraping.sqlite',
+    synchronize: true,
+    logging: true,
+    entities: [Notebook],
+});
 
 const app = express();
 
