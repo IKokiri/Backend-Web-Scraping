@@ -1,7 +1,7 @@
 import Notebook from '../Entity/Notebook';
 import Repository from '../Repository/repository';
 
-class createManyNotebooks {
+class CreateManyNotebooks {
     private repository: Repository = new Repository();
 
     create(notebooks: Array<Notebook>): void {
@@ -11,4 +11,4 @@ class createManyNotebooks {
     }
 }
 
-export default createManyNotebooks;
+export default CreateManyNotebooks;
