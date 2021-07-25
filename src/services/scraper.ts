@@ -1,8 +1,11 @@
 import cheerio from 'cheerio';
 import Notebook from '../Entity/Notebook';
 import FormatWebScraperIo from '../utils/FormatWebScraperIo';
+import getPage from '../api/getPage';
 
-const scraper = (html: string): Array<Notebook> => {
+const scraper = async (): Promise<Array<Notebook>> => {
+    const html = await getPage('http://localhost:8000/pageMock.html');
+
     const Notebooks: Array<Notebook> = [];
 
     const $ = cheerio.load(html);
