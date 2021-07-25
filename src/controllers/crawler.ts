@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import Notebook from '../Entity/Notebook';
 import CreateManyNotebooks from '../services/createManyNotebooks';
-import scraper from '../services/scraper';
+import scraper from '../services/localScraper';
 
 const crawler = async (req: Request, res: Response) => {
     const notebooks: Array<Notebook> = await scraper().then(data => {
