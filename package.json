@@ -33,6 +33,7 @@
     "express": "^4.17.1",
     "prettier": "^2.3.2",
     "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2",
     "ts-node": "^10.1.0",
     "ts-node-dev": "^1.1.8",
     "typeorm": "^0.2.34",
