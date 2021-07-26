@@ -1,6 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from 'typeorm';
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    BaseEntity,
+    Unique,
+} from 'typeorm';
 
 @Entity()
+@Unique(['model'])
 class Notebook extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
