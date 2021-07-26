@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import Notebook from '../Entity/Notebook';
 import CreateManyNotebooks from '../services/createManyNotebooks';
 import scraper from '../services/webScreaperScraper';
+import getOnlyModel from '../utils/GetonlyModel';
 import sortNotebookPrice from '../utils/SortNotebookPrice';
 
 const crawler = async (req: Request, res: Response) => {
@@ -9,6 +10,7 @@ const crawler = async (req: Request, res: Response) => {
         return data;
     });
     notebooks = sortNotebookPrice(notebooks);
+    notebooks = getOnlyModel(notebooks, 'Lenovo');
     const createManyNotebooks: CreateManyNotebooks = new CreateManyNotebooks();
     createManyNotebooks.create(notebooks);
     res.status(200).json(notebooks);
