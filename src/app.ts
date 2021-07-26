@@ -24,6 +24,6 @@ app.set('port', 9000);
 
 app.get('/', info);
 app.get('/v1/crawler', crawler);
-app.get('/v1/crawlerDetail', crawlerDetails);
+app.get('/v1/crawlerDetail/:id', crawlerDetails);
 
 export default app;
