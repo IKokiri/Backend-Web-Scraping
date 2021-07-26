@@ -6,7 +6,9 @@ const getPage = (url: string): Promise<any> => {
             const html = response.data;
             return html;
         })
-        .catch(console.error);
+        .catch(function (error) {
+            console.log(error);
+        });
 };
 
 export default getPage;
