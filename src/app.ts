@@ -5,6 +5,7 @@ import express from 'express';
 import info from './controllers/info';
 import crawler from './controllers/crawler';
 import Notebook from './Entity/Notebook';
+import crawlerDetails from './controllers/crawlerDetails';
 
 /**
  * database connector
@@ -23,5 +24,6 @@ app.set('port', 9000);
 
 app.get('/', info);
 app.get('/v1/crawler', crawler);
+app.get('/v1/crawlerDetail', crawlerDetails);
 
 export default app;
