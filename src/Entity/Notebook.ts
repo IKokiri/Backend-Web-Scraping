@@ -4,6 +4,7 @@ import {
     Column,
     BaseEntity,
     Unique,
+    Double,
 } from 'typeorm';
 
 @Entity()
@@ -21,8 +22,8 @@ class Notebook extends BaseEntity {
     @Column()
     model!: string;
 
-    @Column()
-    price!: string;
+    @Column('float')
+    price!: number;
 
     @Column()
     ratting!: string;

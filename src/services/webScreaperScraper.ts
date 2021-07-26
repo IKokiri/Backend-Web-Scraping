@@ -19,13 +19,13 @@ const scraper = async (): Promise<Array<Notebook>> => {
         const description = $(element).find('.description').text();
         const img = $(element).find('img').attr('src')!;
         const model = $(element).find('.title').attr('title')!;
-        const price = $(element).find('.price').text();
+        const price = $(element).find('.price').text().replace('$', '');
         const ratting = $(element).find('.ratings p').text();
 
         notebook.description = description;
         notebook.img = img;
         notebook.model = model;
-        notebook.price = price;
+        notebook.price = parseFloat(price);
         notebook.ratting = ratting;
 
         Notebooks.push(FormatWebScraperIo(notebook));
