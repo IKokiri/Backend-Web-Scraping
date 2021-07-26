@@ -27,6 +27,12 @@ class Notebook extends BaseEntity {
 
     @Column()
     ratting!: string;
+
+    @Column()
+    idNotebook!: number;
+
+    @Column()
+    linkDetails!: string;
 }
 
 export default Notebook;
