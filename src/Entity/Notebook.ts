@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-@Unique(['model'])
+@Unique(['idNotebook'])
 class Notebook extends BaseEntity {
     @PrimaryGeneratedColumn()
     id!: number;
