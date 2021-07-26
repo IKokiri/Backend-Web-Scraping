@@ -4,7 +4,9 @@ import FormatWebScraperIo from '../utils/FormatWebScraperIo';
 import getPage from '../api/getPage';
 
 const scraper = async (): Promise<Array<Notebook>> => {
-    const html = await getPage('http://localhost:8000/pageMock.html');
+    const html = await getPage(
+        'https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops',
+    );
 
     const Notebooks: Array<Notebook> = [];
 
