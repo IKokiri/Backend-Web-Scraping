@@ -4,11 +4,14 @@ import TypeormUserRepository from './Repository/TypeormUserRepository';
 import EmailValidationManual from './Utils/Validation/EmailValidationManual';
 import NomeValidationManual from './Utils/Validation/NomeValidationManual';
 import SenhaValidationManual from './Utils/Validation/SenhaValidationManual';
+import LoginUser from './UseCase/LoginUser';
+import TokenManual from './Utils/Token/TokenManual';
 
 const typeormUserRepository = new TypeormUserRepository();
 const emailValidationManual = new EmailValidationManual();
 const nomeValidationManual = new NomeValidationManual();
 const senhaValidationManual = new SenhaValidationManual();
+const token = new TokenManual();
 
 const createUser = new CreateUser(
     typeormUserRepository,
@@ -16,6 +19,9 @@ const createUser = new CreateUser(
     nomeValidationManual,
     senhaValidationManual,
 );
-const controller = new Controller(createUser);
 
-export { createUser, controller };
+const loginUser = new LoginUser(typeormUserRepository, token);
+
+const controller = new Controller(createUser, loginUser);
+
+export { createUser, controller, loginUser };

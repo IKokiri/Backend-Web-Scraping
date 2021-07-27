@@ -9,6 +9,11 @@ class TypeormUserRepository implements IUserRepository {
         this.repository = getRepository(User);
         this.repository.insert(user);
     }
+
+    async getLogin(email: string, senha: string): Promise<User | undefined> {
+        this.repository = getRepository(User);
+        return this.repository.findOne({ where: { email, senha } });
+    }
 }
 
 export default TypeormUserRepository;
