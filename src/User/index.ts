@@ -20,7 +20,12 @@ const createUser = new CreateUser(
     senhaValidationManual,
 );
 
-const loginUser = new LoginUser(typeormUserRepository, token);
+const loginUser = new LoginUser(
+    typeormUserRepository,
+    token,
+    emailValidationManual,
+    senhaValidationManual,
+);
 
 const controller = new Controller(createUser, loginUser);
 
