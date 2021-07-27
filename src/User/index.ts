@@ -1,6 +1,6 @@
-import Controller from './Controller';
-import CreateUser from './CreateUser';
-import TypeormUserRepository from './TypeormUserRepository';
+import Controller from './UseCase/Controller';
+import CreateUser from './UseCase/CreateUser';
+import TypeormUserRepository from './Repository/TypeormUserRepository';
 
 const typeormUserRepository = new TypeormUserRepository();
 

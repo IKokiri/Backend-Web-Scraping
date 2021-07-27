@@ -1,5 +1,5 @@
-import User from './Entity/User';
-import { IUserRepository } from './IUserRepository';
+import User from '../Entity/User';
+import { IUserRepository } from '../Repository/IUserRepository';
 
 export class CreateUser {
     private userRepository: IUserRepository;

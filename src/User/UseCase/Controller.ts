@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import CreateUser from './CreateUser';
-import User from './Entity/User';
+import User from '../Entity/User';
 
 class Controller {
     private createUser: CreateUser;
