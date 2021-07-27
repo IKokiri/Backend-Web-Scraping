@@ -3,7 +3,7 @@ import User from '../Entity/User';
 import { IUserRepository } from './IUserRepository';
 
 class TypeormUserRepository implements IUserRepository {
-    constructor(private repository: Repository<User>) {}
+    private repository: Repository<User>;
 
     create(user: User): Promise<void> {
         this.repository = getRepository(User);
