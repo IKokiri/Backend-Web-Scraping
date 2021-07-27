@@ -1,15 +1,19 @@
 import User from '../Entity/User';
 import { IUserRepository } from '../Repository/IUserRepository';
+import { IEmailValidation } from '../Utils/Validation/IEmailValidation';
 
 export class CreateUser {
-    private userRepository: IUserRepository;
+    constructor(
+        private userRepository: IUserRepository,
+        private emailValidation: IEmailValidation,
+    ) {}
 
-    constructor(userRepository: IUserRepository) {
-        this.userRepository = userRepository;
-    }
-
-    async create(data: User) {
+    async create(data: User): Promise<void> {
         const user = new User();
+
+        if (!this.emailValidation.validateEmail(data.email)) {
+            return;
+        }
 
         user.nome = data.nome;
         user.email = data.email;
