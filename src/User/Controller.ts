@@ -10,9 +10,6 @@ class Controller {
     }
 
     async create(req: Request, res: Response): Promise<Response> {
-        console.log(req.body);
-        console.log('-------------------');
-
         const { nome, email, senha } = req.body;
         const user = new User();
         user.nome = nome;
