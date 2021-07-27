@@ -7,7 +7,7 @@ class LoginUser {
         private token: IToken,
     ) {}
 
-    async login(email: string, senha: string): Promise<string> {
+    async login(email: string, senha: string): Promise<string | boolean> {
         const promiseUser = this.userRepository.getLogin(email, senha);
 
         const user = await promiseUser
@@ -16,7 +16,9 @@ class LoginUser {
             })
             .catch();
 
-        return this.token.generate(user?.email, user?.senha).toString();
+        return user
+            ? this.token.generate(user?.email, user?.senha).toString()
+            : false;
     }
 }
 
