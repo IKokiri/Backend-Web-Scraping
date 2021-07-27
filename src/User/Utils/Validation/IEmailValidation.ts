@@ -1,3 +1,3 @@
 export interface IEmailValidation {
-    validateEmail(email: string): boolean;
+    emailValidate(email: string): boolean;
 }

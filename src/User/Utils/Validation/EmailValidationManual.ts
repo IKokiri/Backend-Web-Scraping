@@ -7,7 +7,7 @@ class EmailValidationManual implements IEmailValidation {
         this.email = '';
     }
 
-    validateEmail(email: string): boolean {
+    emailValidate(email: string): boolean {
         this.email = email;
         return this.email.includes('@');
     }
