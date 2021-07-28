@@ -10,6 +10,9 @@ class UserOrder extends BaseEntity {
 
     @Column()
     idUser!: number;
+
+    @Column()
+    quantity!: number;
 }
 
 export default UserOrder;
