@@ -6,7 +6,7 @@ import { IOrderRepository } from '../Repository/IOrderRepository';
 class CreateOrder {
     constructor(private orderRepository: IOrderRepository) {}
 
-    order(user: User, notebooks: Array<Notebook>, quantity: number): void {
+    create(user: User, notebooks: Array<Notebook>, quantity: number): void {
         for (let i = 0; i < notebooks.length; i += 1) {
             const userOrder = new UserOrder();
 
