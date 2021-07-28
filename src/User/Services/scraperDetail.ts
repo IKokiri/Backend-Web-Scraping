@@ -1,5 +1,5 @@
 import cheerio from 'cheerio';
-import getPage from '../api/getPage';
+import getPage from '../API/getPage';
 import Notebook from '../Entity/Notebook';
 import NotebookDetail from '../Entity/NotebookDetail';
 

@@ -5,7 +5,6 @@ import {
     BaseEntity,
     Unique,
 } from 'typeorm';
-import Notebook from './Notebook';
 
 @Entity()
 @Unique(['idNotebook'])

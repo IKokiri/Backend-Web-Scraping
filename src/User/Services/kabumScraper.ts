@@ -1,7 +1,7 @@
 import cheerio from 'cheerio';
 import Notebook from '../Entity/Notebook';
-import FormatWebScraperIo from '../utils/FormatWebScraperIo';
-import getPage from '../api/getPage';
+import FormatWebScraperIo from '../Utils/FormatWebScraperIo';
+import getPage from '../API/getPage';
 
 const scraper = async (): Promise<Array<Notebook>> => {
     const html = await getPage(

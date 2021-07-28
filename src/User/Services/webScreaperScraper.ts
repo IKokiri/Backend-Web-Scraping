@@ -1,8 +1,8 @@
 import cheerio from 'cheerio';
 import Notebook from '../Entity/Notebook';
-import FormatWebScraperIo from '../utils/FormatWebScraperIo';
-import getPage from '../api/getPage';
-import getIdWebScraper from '../utils/GetIdWebScraper';
+import FormatWebScraperIo from '../Utils/FormatWebScraperIo';
+import getPage from '../API/getPage';
+import getIdWebScraper from '../Utils/GetIdWebScraper';
 
 const scraper = async (): Promise<Array<Notebook>> => {
     const linkBase = 'https://webscraper.io/test-sites/e-commerce/allinone/';

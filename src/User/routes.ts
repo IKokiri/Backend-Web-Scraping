@@ -6,6 +6,14 @@ router.get('/v1', (req: Request, res: Response) => {
     return res.status(200).send('Olá, eu sou a versão 1 da aplicação');
 });
 
+router.get('/v1/crawler', (req: Request, res: Response) => {
+    controller.crawler(req, res);
+});
+
+router.get('/v1/crawlerDetail/:id', (req: Request, res: Response) => {
+    controller.crawlerDetails(req, res);
+});
+
 router.post('/v1/user', (req: Request, res: Response) => {
     return controller.create(req, res);
 });
