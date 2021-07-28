@@ -1,16 +1,24 @@
 import Controller from './UseCase/Controller';
 import CreateUser from './UseCase/CreateUser';
+import LoginUser from './UseCase/LoginUser';
+
 import TypeormUserRepository from './Repository/TypeormUserRepository';
+import TypeormOrderRepository from './Repository/TypeormOrderRepository';
+
 import EmailValidationManual from './Utils/Validation/EmailValidationManual';
 import NomeValidationManual from './Utils/Validation/NomeValidationManual';
 import SenhaValidationManual from './Utils/Validation/SenhaValidationManual';
-import LoginUser from './UseCase/LoginUser';
+
 import TokenManual from './Utils/Token/TokenManual';
+import CreateOrder from './UseCase/CreateOrder';
 
 const typeormUserRepository = new TypeormUserRepository();
+const typeormOrderRepository = new TypeormOrderRepository();
+
 const emailValidationManual = new EmailValidationManual();
 const nomeValidationManual = new NomeValidationManual();
 const senhaValidationManual = new SenhaValidationManual();
+
 const token = new TokenManual();
 
 const createUser = new CreateUser(
@@ -27,6 +35,8 @@ const loginUser = new LoginUser(
     senhaValidationManual,
 );
 
-const controller = new Controller(createUser, loginUser);
+const createOrder = new CreateOrder(typeormOrderRepository);
 
-export { createUser, controller, loginUser };
+const controller = new Controller(createUser, loginUser, createOrder);
+
+export default controller;

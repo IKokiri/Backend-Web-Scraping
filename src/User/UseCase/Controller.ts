@@ -2,16 +2,14 @@ import { Request, Response } from 'express';
 import CreateUser from './CreateUser';
 import User from '../Entity/User';
 import LoginUser from './LoginUser';
+import CreateOrder from './CreateOrder';
 
 class Controller {
-    private createUser: CreateUser;
-
-    private loginUser: LoginUser;
-
-    constructor(createUser: CreateUser, loginUser: LoginUser) {
-        this.createUser = createUser;
-        this.loginUser = loginUser;
-    }
+    constructor(
+        private createUser: CreateUser,
+        private loginUser: LoginUser,
+        private createUserOrder: CreateOrder,
+    ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
         const { nome, email, senha } = req.body;
@@ -29,6 +27,13 @@ class Controller {
 
         const token = await this.loginUser.login(email, senha);
         return res.status(200).send(token);
+    }
+
+    async createOrder(req: Request, res: Response): Promise<Response> {
+        const { idUser, notebooks } = req.body;
+        await this.createUserOrder.create(idUser, notebooks);
+
+        return res.status(201).send();
     }
 }
 

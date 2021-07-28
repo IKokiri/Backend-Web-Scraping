@@ -8,6 +8,7 @@ import Notebook from './Entity/Notebook';
 import crawlerDetails from './controllers/crawlerDetails';
 import User from './User/Entity/User';
 import routerUser from './User/routes';
+import UserOrder from './User/Entity/UserOrder';
 
 /**
  * database connector
@@ -17,7 +18,7 @@ createConnection({
     database: 'backendwebscraping.sqlite',
     synchronize: true,
     logging: true,
-    entities: [Notebook, User],
+    entities: [Notebook, User, UserOrder],
 });
 
 const app = express();
