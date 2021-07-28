@@ -1,7 +1,10 @@
-import { Request, Response, Router } from 'express';
+import { request, Request, response, Response, Router } from 'express';
 import controller from '.';
 
 const router = Router();
+router.get('/v1', (req: Request, res: Response) => {
+    return res.status(200).send('Olá, eu sou a versão 1 da aplicação');
+});
 
 router.post('/v1/user', (req: Request, res: Response) => {
     return controller.create(req, res);

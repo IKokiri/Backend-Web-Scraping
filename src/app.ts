@@ -2,7 +2,6 @@ import { createConnection } from 'typeorm';
 import express from 'express';
 
 // Controllers routes
-import info from './controllers/info';
 import crawler from './controllers/crawler';
 import Notebook from './Entity/Notebook';
 import crawlerDetails from './controllers/crawlerDetails';
@@ -25,7 +24,6 @@ const app = express();
 app.use(express.json());
 app.set('port', 9000);
 
-app.get('/', info);
 app.get('/v1/crawler', crawler);
 app.get('/v1/crawlerDetail/:id', crawlerDetails);
 
