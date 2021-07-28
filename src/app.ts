@@ -2,10 +2,10 @@ import { createConnection } from 'typeorm';
 import express from 'express';
 
 // Controllers routes
-import Notebook from './User/Entity/Notebook';
-import User from './User/Entity/User';
-import routerUser from './User/routes';
-import UserOrder from './User/Entity/UserOrder';
+import Notebook from './Entity/Notebook';
+import User from './Entity/User';
+import UserOrder from './Entity/UserOrder';
+import router from './routes';
 
 /**
  * database connector
@@ -22,6 +22,6 @@ const app = express();
 app.use(express.json());
 app.set('port', 9000);
 
-app.use(routerUser);
+app.use(router);
 
 export default app;
