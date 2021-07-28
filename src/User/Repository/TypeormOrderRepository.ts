@@ -2,7 +2,7 @@ import { getRepository, Repository } from 'typeorm';
 import UserOrder from '../Entity/UserOrder';
 import { IOrderRepository } from './IOrderRepository';
 
-class typeormOrderRepository implements IOrderRepository {
+class TypeormOrderRepository implements IOrderRepository {
     private repository: Repository<UserOrder> | undefined;
 
     create(order: UserOrder): void {
@@ -11,4 +11,4 @@ class typeormOrderRepository implements IOrderRepository {
     }
 }
 
-export default typeormOrderRepository;
+export default TypeormOrderRepository;
