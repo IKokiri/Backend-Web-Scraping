@@ -18,3 +18,9 @@ Acessar esse site e pegar todos notebooks Lenovo ordenando do mais barato para o
 - https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods
 
 - https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
+
+- https://blog.geekhunter.com.br/criar-crud-nodejs/
+
+- https://ezdevs.com.br/comecando-uma-api-rest-com-node-js/
+
+- https://www.makeareadme.com/
