@@ -26,5 +26,4 @@ router.post('/order', (req: Request, res: Response) => {
     return controller.createOrder(req, res);
 });
 
-
 export default router;
