@@ -22,7 +22,7 @@ router.get('/crawler', (req: Request, res: Response) => {
     controller.crawler(req, res);
 });
 
-router.get('/crawler/:id', (req: Request, res: Response) => {
+router.get('/crawler/findById/:id', (req: Request, res: Response) => {
     controller.crawlerDetails(req, res);
 });
 
