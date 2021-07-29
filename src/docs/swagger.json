@@ -144,6 +144,50 @@
                     }
                 }
             }
+        },
+        "/order": {
+            "post":{
+                "summary": "Adicionar pedido",
+                "description": "Adiciona uma lista de produtos escolhidos pelo usuário",
+                "tags": ["Order"],
+                "requestBody":{
+                    "content":{
+                        "application/json": {
+                            "schema": {
+                                "type":"object",
+                                "properties":{
+                                    "idUser":{
+                                        "type":"number"
+                                    },
+                                    "notebooks":{
+                                        "type":"array",
+                                        "items":{
+                                            "type":"number"
+                                        }
+                                    }                                   
+                                }   
+                            },
+                            "examples":{
+                                "order":{
+                                    "value":{
+                                        "idUser":"34",
+                                        "notebooks":[2,65,97,956]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    },
+                    "404":{
+                        "description":"Notebook not found"
+                    }
+                }
+
+            }
         }
     },
     "components":{
