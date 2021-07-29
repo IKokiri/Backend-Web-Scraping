@@ -1,0 +1,263 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title": "Api para capturar dados de sites",
+        "description": "Essa API tem a função principal de capturar dados referentes a notebooks em sites",
+        "contact": {
+            "email": "luiz.mendes@in8.com.br"
+        },
+        "version": "1.0.0"
+    },
+    "servers":[
+        {
+            "url":"http://localhost:9000/v1",
+            "description": "dev api"
+        }
+    ],
+    "paths":{
+        "/user":{
+            "post": {
+                "summary": "Cadastro de usuário",
+                "description": "Responsável por fazer o cadastro de um novo usuário",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content":{
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "user":{
+                                    "value": {
+                                        "nome":"Luiz Mendes",
+                                        "email":"luiz.mendes@in8.com.br",
+                                        "senha":"M1nh4$3nh4"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Alread exists"
+                    },
+                    "201":{
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "get": {
+                "summary": "Login do usuário",
+                "description ": "Responsável por autenticar o usuário e retornar seu token de acesso",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            },
+                            "examples": {
+                                "login": {
+                                    "value": {
+                                        "email":"luiz.mendes@in8.com.br",
+                                        "senha":"M1nh4$3nh4"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Token"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Login not found"
+                    }
+                }
+            }
+        },
+        "/crawler": {
+            "get":{
+                "summary": "Captura informações",
+                "decription": "Responsável por capturar informações de sites",
+                "tags": ["Crawler"],
+                "RequestBody": {
+                },
+                "responses":{
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "$ref":"#/components/schemas/Notebook"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "data not found"
+                    }
+                    
+                }
+            }            
+        },
+        "/crawler/findById/{id}": {
+            "get":{
+                "summary": "Busca item",
+                "description": "Responsável de buscar o item requisitado",
+                "tags": ["Crawler"],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in": "path",
+                        "description": "Id do notebook para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": "object",
+                                "$ref":"#/components/schemas/Notebook"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/order": {
+            "post":{
+                "summary": "Adicionar pedido",
+                "description": "Adiciona uma lista de produtos escolhidos pelo usuário",
+                "tags": ["Order"],
+                "requestBody":{
+                    "content":{
+                        "application/json": {
+                            "schema": {
+                                "type":"object",
+                                "properties":{
+                                    "idUser":{
+                                        "type":"number"
+                                    },
+                                    "notebooks":{
+                                        "type":"array",
+                                        "items":{
+                                            "type":"number"
+                                        }
+                                    }                                   
+                                }   
+                            },
+                            "examples":{
+                                "order":{
+                                    "value":{
+                                        "idUser":"34",
+                                        "notebooks":[2,65,97,956]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Created"
+                    },
+                    "404":{
+                        "description":"Notebook not found"
+                    }
+                }
+
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+            "User": {
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type":"number"
+                    },
+                    "nome":{
+                        "type":"string"
+                    },
+                    "email":{
+                        "type":"string"
+                    },
+                    "senha":{
+                        "type":"string"
+                    }
+                }
+            },
+            "Login": {
+                "type":"object",
+                "properties":{
+                    "email": {
+                        "type":"string"
+                    },
+                    "senha":{
+                        "type":"string"
+                    }
+                }
+            },
+            "Token": {
+                "type":"object",
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Notebook": {
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type": "number"
+                    },
+                    "description":{
+                        "type": "string"
+                    },
+                    "img": {
+                        "type":"string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type":"number"
+                    },
+                    "ratting":{
+                        "type": "string"
+                    },
+                    "idNotebook":{
+                        "type":"number"
+                    },
+                    "linkDetails":{
+                        "type":"string"
+                    }
+                    
+                }
+            }
+        }
+    }
+}
