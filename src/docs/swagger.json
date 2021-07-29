@@ -1,1 +1,132 @@
-{}
+{
+    "openapi":"3.0.0",
+    "info":{
+        "title": "Api para capturar dados de sites",
+        "description": "Essa API tem a função principal de capturar dados referentes a notebooks em sites",
+        "contact": {
+            "email": "luiz.mendes@in8.com.br"
+        },
+        "version": "1.0.0"
+    },
+    "servers":[
+        {
+            "url":"http://localhost:9000/v1",
+            "description": "dev api"
+        }
+    ],
+    "paths":{
+        "/user":{
+            "post": {
+                "summary": "Cadastro de usuário",
+                "description": "Responsável por fazer o cadastro de um novo usuário",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content":{
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "user":{
+                                    "value": {
+                                        "nome":"Luiz Mendes",
+                                        "email":"luiz.mendes@in8.com.br",
+                                        "senha":"M1nh4$3nh4"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Alread exists"
+                    },
+                    "201":{
+                        "description": "Created"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "get": {
+                "summary": "Login do usuário",
+                "description ": "Responsável por autenticar o usuário e retornar seu token de acesso",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            },
+                            "examples": {
+                                "login": {
+                                    "value": {
+                                        "email":"luiz.mendes@in8.com.br",
+                                        "senha":"M1nh4$3nh4"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type":"object",
+                                    "$ref":"#/components/schemas/Token"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Login not found"
+                    }
+                }
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+            "User": {
+                "type": "object",
+                "properties":{
+                    "id":{
+                        "type":"number"
+                    },
+                    "nome":{
+                        "type":"string"
+                    },
+                    "email":{
+                        "type":"string"
+                    },
+                    "senha":{
+                        "type":"string"
+                    }
+                }
+            },
+            "Login": {
+                "type":"object",
+                "properties":{
+                    "email": {
+                        "type":"string"
+                    },
+                    "senha":{
+                        "type":"string"
+                    }
+                }
+            },
+            "Token": {
+                "type":"object",
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
