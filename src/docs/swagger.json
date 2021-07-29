@@ -87,6 +87,34 @@
                     }
                 }
             }
+        },
+        "/crawler": {
+            "get":{
+                "summary": "Captura informações",
+                "decription": "Responsável por capturar informações de sites",
+                "tags": ["Crawler"],
+                "RequestBody": {
+                },
+                "responses":{
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "$ref":"#/components/schemas/Notebook"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "data not found"
+                    }
+                    
+                }
+            }            
         }
     },
     "components":{
@@ -125,6 +153,36 @@
                     "token": {
                         "type": "string"
                     }
+                }
+            },
+            "Notebook": {
+                "type":"object",
+                "properties": {
+                    "id":{
+                        "type": "number"
+                    },
+                    "description":{
+                        "type": "string"
+                    },
+                    "img": {
+                        "type":"string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type":"number"
+                    },
+                    "ratting":{
+                        "type": "string"
+                    },
+                    "idNotebook":{
+                        "type":"number"
+                    },
+                    "linkDetails":{
+                        "type":"string"
+                    }
+                    
                 }
             }
         }
