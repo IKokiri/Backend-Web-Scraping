@@ -115,6 +115,35 @@
                     
                 }
             }            
+        },
+        "/crawler/findById/{id}": {
+            "get":{
+                "summary": "Busca item",
+                "description": "Responsável de buscar o item requisitado",
+                "tags": ["Crawler"],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in": "path",
+                        "description": "Id do notebook para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": "object",
+                                "$ref":"#/components/schemas/Notebook"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
         }
     },
     "components":{
