@@ -2,28 +2,28 @@ import { Request, Response, Router } from 'express';
 import controller from '.';
 
 const router = Router();
-router.get('/v1', (req: Request, res: Response) => {
-    return res.status(200).send('Olá, eu sou a versão 1 da aplicação');
+router.get('', (req: Request, res: Response) => {
+    return res.status(200).json('Olá, eu sou a versão 1 da aplicação');
 });
 
-router.get('/v1/crawler', (req: Request, res: Response) => {
-    controller.crawler(req, res);
-});
-
-router.get('/v1/crawlerDetail/:id', (req: Request, res: Response) => {
-    controller.crawlerDetails(req, res);
-});
-
-router.post('/v1/user', (req: Request, res: Response) => {
+router.post('/user', (req: Request, res: Response) => {
     return controller.create(req, res);
 });
 
-router.get('/v1/user/login', (req: Request, res: Response) => {
+router.get('/user/login', (req: Request, res: Response) => {
     return controller.login(req, res);
 });
 
-router.post('/v1/order', (req: Request, res: Response) => {
+router.post('/order', (req: Request, res: Response) => {
     return controller.createOrder(req, res);
+});
+
+router.get('/crawler', (req: Request, res: Response) => {
+    controller.crawler(req, res);
+});
+
+router.get('/crawlerDetail/:id', (req: Request, res: Response) => {
+    controller.crawlerDetails(req, res);
 });
 
 export default router;

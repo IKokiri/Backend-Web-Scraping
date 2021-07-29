@@ -22,6 +22,6 @@ const app = express();
 app.use(express.json());
 app.set('port', 9000);
 
-app.use(router);
+app.use('/v1', router);
 
 export default app;
