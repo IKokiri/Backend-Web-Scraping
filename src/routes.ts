@@ -2,9 +2,6 @@ import { Request, Response, Router } from 'express';
 import controller from '.';
 
 const router = Router();
-router.get('', (req: Request, res: Response) => {
-    return res.status(200).json('Olá, eu sou a versão 1 da aplicação');
-});
 
 router.post('/user', (req: Request, res: Response) => {
     return controller.create(req, res);
