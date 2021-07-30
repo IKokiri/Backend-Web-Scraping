@@ -40,10 +40,44 @@
                 },
                 "responses": {
                     "400": {
-                        "description": "Alread exists"
+                        "description": "User already exists",
+                        "content":{
+                        "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/MessageClient"
+                                },
+                                "examples":{
+                                    "messageClient":{
+                                        "value": {
+                                            "status":false,
+                                            "message":"User already exists",
+                                            "data":""
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     },
                     "201":{
-                        "description": "Created"
+                        "description": "Successfully created",
+                        "content":{
+                        "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/MessageClient"
+                                },
+                                "examples":{
+                                    "messageClient":{
+                                        "value": {
+                                            "status":false,
+                                            "message":"Successfully created",
+                                            "data": {
+                                                "$ref": "#/components/schemas/User"                                                
+                                            }                                   
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -256,6 +290,20 @@
                         "type":"string"
                     }
                     
+                }
+            },
+            "MessageClient": {
+                "type":"object",
+                "properties":{
+                    "status":{
+                        "type":"boolean"
+                    },
+                    "message":{
+                        "type":"string"
+                    },
+                    "data":{
+                        "type":"object"                        
+                    }
                 }
             }
         }
