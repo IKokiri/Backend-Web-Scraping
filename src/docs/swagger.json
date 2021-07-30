@@ -99,7 +99,7 @@
             }
         },
         "/user/login": {
-            "get": {
+            "post": {
                 "summary": "Login do usuário",
                 "description ": "Responsável por autenticar o usuário e retornar seu token de acesso",
                 "tags": ["Users"],
