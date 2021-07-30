@@ -1,4 +1,5 @@
 import { IUserRepository } from '../Repository/IUserRepository';
+import { MessageClient } from '../Types/Message';
 import { IToken } from '../Utils/Token/IToken';
 import { IEmailValidation } from '../Utils/Validation/IEmailValidation';
 import { ISenhaValidation } from '../Utils/Validation/ISenhaValidation';
@@ -11,13 +12,23 @@ class LoginUser {
         private senhaValidation: ISenhaValidation,
     ) {}
 
-    async login(email: string, senha: string): Promise<string | boolean> {
-        if (!this.emailValidation.emailValidate(email)) {
-            return false;
+    async login(email: string, senha: string): Promise<MessageClient> {
+        if (email === undefined || !this.emailValidation.emailValidate(email)) {
+            const messageValidateUserByEmail: MessageClient = {
+                status: false,
+                message: 'E-Mail is not valid',
+                data: '',
+            };
+            return messageValidateUserByEmail;
         }
 
-        if (!this.senhaValidation.senhaValidate(senha)) {
-            return false;
+        if (senha === undefined || !this.senhaValidation.senhaValidate(senha)) {
+            const messageValidateuserPassword: MessageClient = {
+                status: false,
+                message: 'Password is not valid',
+                data: '',
+            };
+            return messageValidateuserPassword;
         }
 
         const promiseUser = this.userRepository.getLogin(email, senha);
@@ -28,9 +39,25 @@ class LoginUser {
             })
             .catch();
 
-        return user
-            ? this.token.generate(user?.email, user?.senha).toString()
-            : false;
+        if (user === undefined) {
+            const messageNotFoundUser: MessageClient = {
+                status: false,
+                message: 'Login not found!',
+                data: '',
+            };
+
+            return messageNotFoundUser;
+        }
+
+        const messageToken: MessageClient = {
+            status: true,
+            message: 'Login successfully',
+            data: {
+                token: this.token.generate(user?.email, user?.senha).toString(),
+            },
+        };
+
+        return messageToken;
     }
 }
 

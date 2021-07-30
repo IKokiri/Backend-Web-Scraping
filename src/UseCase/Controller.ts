@@ -34,9 +34,9 @@ class Controller {
 
     async login(req: Request, res: Response): Promise<Response> {
         const { email, senha } = req.body;
-
-        const token = await this.loginUser.login(email, senha);
-        return res.status(200).send(token);
+        const message = await this.loginUser.login(email, senha);
+        if (message.status) return res.status(200).send(message);
+        return res.status(404).json(message);
     }
 
     async createOrder(req: Request, res: Response): Promise<Response> {
