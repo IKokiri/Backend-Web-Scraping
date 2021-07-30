@@ -7,7 +7,7 @@ router.post('/user', (req: Request, res: Response) => {
     return controller.create(req, res);
 });
 
-router.get('/user/login', (req: Request, res: Response) => {
+router.post('/user/login', (req: Request, res: Response) => {
     return controller.login(req, res);
 });
 
