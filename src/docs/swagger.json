@@ -68,10 +68,26 @@
                                 "examples":{
                                     "messageClient":{
                                         "value": {
-                                            "status":false,
+                                            "status":true,
                                             "message":"Successfully created",
                                             "data": {
-                                                "$ref": "#/components/schemas/User"                                                
+                                                "User": {
+                                                    "type": "object",
+                                                    "properties":{
+                                                        "id":{
+                                                            "type":"number"
+                                                        },
+                                                        "nome":{
+                                                            "type":"string"
+                                                        },
+                                                        "email":{
+                                                            "type":"string"
+                                                        },
+                                                        "senha":{
+                                                            "type":"string"
+                                                        }
+                                                    }
+                                                }                                                
                                             }                                   
                                         }
                                     }
