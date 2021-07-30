@@ -26,8 +26,10 @@ class Controller {
         user.email = email;
         user.senha = senha;
 
-        await this.createUser.create(user);
-        return res.status(201).send();
+        const message = await this.createUser.create(user);
+
+        if (!message.status) return res.status(400).json(message);
+        return res.status(201).json(message);
     }
 
     async login(req: Request, res: Response): Promise<Response> {
