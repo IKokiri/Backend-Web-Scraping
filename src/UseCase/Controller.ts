@@ -7,9 +7,6 @@ import Notebook from '../Entity/Notebook';
 import scraper from '../Services/webScreaperScraper';
 import sortNotebookPrice from '../Utils/SortNotebookPrice';
 import getOnlyModel from '../Utils/GetonlyModel';
-import Repository from '../Repository/NotebookRepository';
-import scraperDetail from '../Services/scraperDetail';
-import NotebookDetail from '../Entity/NotebookDetail';
 import CreateManyNotebooks from '../Services/CreateManyNotebooks';
 import GetNotebook from './GetNotebook';
 
@@ -64,9 +61,8 @@ class Controller {
     crawlerDetails = async (req: Request, res: Response): Promise<Response> => {
         const idNotebook = +req.params.id;
 
-        const notebook = await this.getNotebook.getNotebookById(idNotebook);
-
-        return res.status(200).json(notebook);
+        const message = await this.getNotebook.getNotebookById(idNotebook);
+        return res.status(200).json(message);
     };
 }
 
