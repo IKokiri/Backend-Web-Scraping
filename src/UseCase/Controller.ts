@@ -8,7 +8,7 @@ import scraper from '../Services/webScreaperScraper';
 import sortNotebookPrice from '../Utils/SortNotebookPrice';
 import getOnlyModel from '../Utils/GetonlyModel';
 import CreateManyNotebooks from '../Services/createManyNotebooks';
-import Repository from '../Repository/repository';
+import Repository from '../Repository/NotebookRepository';
 import scraperDetail from '../Services/scraperDetail';
 import NotebookDetail from '../Entity/NotebookDetail';
 

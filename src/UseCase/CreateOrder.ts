@@ -1,11 +1,15 @@
 import UserOrder from '../Entity/UserOrder';
+import { INotebookRepository } from '../Repository/INotebookRepository';
 import { IOrderRepository } from '../Repository/IOrderRepository';
 import { NotebookOrderDTO } from '../Types/NotebookOrderDTO';
 
 class CreateOrder {
-    constructor(private orderRepository: IOrderRepository) {}
+    constructor(
+        private orderRepository: IOrderRepository,
+        private notebookRepository: INotebookRepository,
+    ) {}
 
-    create(idUser: number, notebooks: Array<NotebookOrderDTO>): void {
+    async create(idUser: number, notebooks: Array<NotebookOrderDTO>): void {
         for (let i = 0; i < notebooks.length; i += 1) {
             const userOrder = new UserOrder();
 
@@ -13,7 +17,12 @@ class CreateOrder {
             userOrder.idUser = idUser;
             userOrder.quantity = notebooks[i].quantity;
 
-            this.orderRepository.create(userOrder);
+            if (
+                // eslint-disable-next-line no-await-in-loop
+                (await this.notebookRepository.getId(userOrder.idProduct)) !==
+                undefined
+            )
+                this.orderRepository.create(userOrder);
         }
     }
 }

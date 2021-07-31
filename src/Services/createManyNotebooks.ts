@@ -1,5 +1,5 @@
 import Notebook from '../Entity/Notebook';
-import Repository from '../Repository/repository';
+import Repository from '../Repository/NotebookRepository';
 
 class CreateManyNotebooks {
     private repository: Repository = new Repository();
