@@ -6,7 +6,7 @@ class CreateManyNotebooks implements ICreateManyNotebooks {
     constructor(private createNotebook: CreateNotebook) {}
 
     create(notebooks: Array<Notebook>): void {
-        for (let i = 0; i <= notebooks.length; i += 1) {
+        for (let i = 0; i < notebooks.length; i += 1) {
             this.createNotebook.create(notebooks[i]);
         }
     }
