@@ -11,9 +11,11 @@ import SenhaValidationManual from './Utils/Validation/SenhaValidationManual';
 
 import TokenManual from './Utils/Token/TokenManual';
 import CreateOrder from './UseCase/CreateOrder';
+import NotebookRepository from './Repository/NotebookRepository';
 
 const typeormUserRepository = new TypeormUserRepository();
 const typeormOrderRepository = new TypeormOrderRepository();
+const notebookRepository = new NotebookRepository();
 
 const emailValidationManual = new EmailValidationManual();
 const nomeValidationManual = new NomeValidationManual();
@@ -35,7 +37,7 @@ const loginUser = new LoginUser(
     senhaValidationManual,
 );
 
-const createOrder = new CreateOrder(typeormOrderRepository);
+const createOrder = new CreateOrder(typeormOrderRepository, notebookRepository);
 
 const controller = new Controller(createUser, loginUser, createOrder);
 
