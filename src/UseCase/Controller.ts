@@ -7,16 +7,17 @@ import Notebook from '../Entity/Notebook';
 import scraper from '../Services/webScreaperScraper';
 import sortNotebookPrice from '../Utils/SortNotebookPrice';
 import getOnlyModel from '../Utils/GetonlyModel';
-import CreateManyNotebooks from '../Services/createManyNotebooks';
 import Repository from '../Repository/NotebookRepository';
 import scraperDetail from '../Services/scraperDetail';
 import NotebookDetail from '../Entity/NotebookDetail';
+import CreateManyNotebooks from '../Services/CreateManyNotebooks';
 
 class Controller {
     constructor(
         private createUser: CreateUser,
         private loginUser: LoginUser,
         private createUserOrder: CreateOrder,
+        private createManyNotebooks: CreateManyNotebooks,
     ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
@@ -52,9 +53,7 @@ class Controller {
         });
         notebooks = sortNotebookPrice(notebooks);
         notebooks = getOnlyModel(notebooks, 'Lenovo');
-        const createManyNotebooks: CreateManyNotebooks =
-            new CreateManyNotebooks();
-        createManyNotebooks.create(notebooks);
+        this.createManyNotebooks.create(notebooks);
 
         return res.status(200).json(notebooks);
     };

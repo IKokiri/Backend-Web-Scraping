@@ -12,6 +12,8 @@ import SenhaValidationManual from './Utils/Validation/SenhaValidationManual';
 import TokenManual from './Utils/Token/TokenManual';
 import CreateOrder from './UseCase/CreateOrder';
 import NotebookRepository from './Repository/NotebookRepository';
+import CreateManyNotebooks from './Services/CreateManyNotebooks';
+import CreateNotebook from './UseCase/CreateNotebook';
 
 const typeormUserRepository = new TypeormUserRepository();
 const typeormOrderRepository = new TypeormOrderRepository();
@@ -21,7 +23,11 @@ const emailValidationManual = new EmailValidationManual();
 const nomeValidationManual = new NomeValidationManual();
 const senhaValidationManual = new SenhaValidationManual();
 
+const createNotebook = new CreateNotebook(notebookRepository);
+
 const token = new TokenManual();
+
+const createManyNotebooks = new CreateManyNotebooks(createNotebook);
 
 const createUser = new CreateUser(
     typeormUserRepository,
@@ -39,6 +45,11 @@ const loginUser = new LoginUser(
 
 const createOrder = new CreateOrder(typeormOrderRepository, notebookRepository);
 
-const controller = new Controller(createUser, loginUser, createOrder);
+const controller = new Controller(
+    createUser,
+    loginUser,
+    createOrder,
+    createManyNotebooks,
+);
 
 export default controller;
