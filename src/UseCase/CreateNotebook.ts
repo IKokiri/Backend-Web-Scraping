@@ -9,7 +9,7 @@ class CreateNotebook {
             notebook.idNotebook,
         );
 
-        if (resultGetNotebook !== undefined)
+        if (resultGetNotebook === undefined)
             this.notebookRepository.create(notebook);
     }
 }

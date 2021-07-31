@@ -11,6 +11,7 @@ import Repository from '../Repository/NotebookRepository';
 import scraperDetail from '../Services/scraperDetail';
 import NotebookDetail from '../Entity/NotebookDetail';
 import CreateManyNotebooks from '../Services/CreateManyNotebooks';
+import GetNotebook from './GetNotebook';
 
 class Controller {
     constructor(
@@ -18,6 +19,7 @@ class Controller {
         private loginUser: LoginUser,
         private createUserOrder: CreateOrder,
         private createManyNotebooks: CreateManyNotebooks,
+        private getNotebook: GetNotebook,
     ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
@@ -51,6 +53,7 @@ class Controller {
         let notebooks: Array<Notebook> = await scraper().then(data => {
             return data;
         });
+
         notebooks = sortNotebookPrice(notebooks);
         notebooks = getOnlyModel(notebooks, 'Lenovo');
         this.createManyNotebooks.create(notebooks);
@@ -60,25 +63,10 @@ class Controller {
 
     crawlerDetails = async (req: Request, res: Response): Promise<Response> => {
         const idNotebook = +req.params.id;
-        const repositoryNotebook = new Repository();
-        let notebook = new Notebook();
-        const promiseNotebook = repositoryNotebook.getId(idNotebook);
-        notebook = await promiseNotebook
-            .then(data => {
-                const note: Notebook = data;
-                return note;
-            })
-            .catch();
 
-        const promiseNotebookDetail = scraperDetail(notebook);
+        const notebook = await this.getNotebook.getNotebookById(idNotebook);
 
-        const notebookDetail: NotebookDetail = await promiseNotebookDetail
-            .then(data => {
-                return data;
-            })
-            .catch();
-
-        return res.status(200).json(notebookDetail);
+        return res.status(200).json(notebook);
     };
 }
 

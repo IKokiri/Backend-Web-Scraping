@@ -14,6 +14,7 @@ import CreateOrder from './UseCase/CreateOrder';
 import NotebookRepository from './Repository/NotebookRepository';
 import CreateManyNotebooks from './Services/CreateManyNotebooks';
 import CreateNotebook from './UseCase/CreateNotebook';
+import GetNotebook from './UseCase/GetNotebook';
 
 const typeormUserRepository = new TypeormUserRepository();
 const typeormOrderRepository = new TypeormOrderRepository();
@@ -28,6 +29,7 @@ const createNotebook = new CreateNotebook(notebookRepository);
 const token = new TokenManual();
 
 const createManyNotebooks = new CreateManyNotebooks(createNotebook);
+const getNotebook = new GetNotebook(notebookRepository);
 
 const createUser = new CreateUser(
     typeormUserRepository,
@@ -50,6 +52,7 @@ const controller = new Controller(
     loginUser,
     createOrder,
     createManyNotebooks,
+    getNotebook,
 );
 
 export default controller;

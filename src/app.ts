@@ -15,7 +15,7 @@ createConnection({
     type: 'sqlite',
     database: 'backendwebscraping.sqlite',
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [Notebook, User, UserOrder],
 });
 
