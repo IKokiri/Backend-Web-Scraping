@@ -9,7 +9,10 @@ class CreateOrder {
         private notebookRepository: INotebookRepository,
     ) {}
 
-    async create(idUser: number, notebooks: Array<NotebookOrderDTO>): void {
+    async create(
+        idUser: number,
+        notebooks: Array<NotebookOrderDTO>,
+    ): Promise<void> {
         for (let i = 0; i < notebooks.length; i += 1) {
             const userOrder = new UserOrder();
 
