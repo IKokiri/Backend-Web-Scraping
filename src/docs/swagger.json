@@ -220,8 +220,21 @@
                             "examples":{
                                 "order":{
                                     "value":{
-                                        "idUser":"34",
-                                        "notebooks":[2,65,97,956]
+                                        "idUser":4,
+                                        "notebooks":[
+                                            {
+                                                "id":21,
+                                                "quantity":34
+                                            },
+                                            {
+                                                "id":2,
+                                                "quantity":32
+                                            },
+                                            {
+                                                "id":508,
+                                                "quantity":30
+                                            }
+                                        ]
                                     }
                                 }
                             }
