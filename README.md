@@ -35,10 +35,12 @@ A aplicação tem vários endpoints diferentes disponíveis, todos estes podem s
 http://localhost:9000/api-docs/
 ```
 
-Alem de todas as rotas, schemas requisições e repostas, essa rota, através do "Try out", permite que você envie e receba requisições.
+Além de todas as rotas, schemas requisições e repostas, essa rota, através do "Try out", permite que você envie requisições para testes da aplicação.
 
  <img src="https://github.com/IKokiri/Backend-Web-Scraping/blob/main/src/imgs/swagger0.png" alt="Swagger"/>
- 
+
+
+ <img src="https://github.com/IKokiri/Backend-Web-Scraping/blob/main/src/imgs/swagger1.png" alt="Swagger"/>
 ## Scraping
 
 - https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops
