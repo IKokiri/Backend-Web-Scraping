@@ -1,6 +1,6 @@
 # Backend-Web-Scraping
 
-Backend para capturar dados de notebooks do site.
+Backend baseado em node e typescript para capturar dados de notebooks do site.
 
 ## Scraping
 
