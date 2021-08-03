@@ -41,11 +41,14 @@ Além de todas as rotas, schemas requisições e repostas, essa rota, através d
 
 
  <img src="https://github.com/IKokiri/Backend-Web-Scraping/blob/main/src/imgs/swagger1.png" alt="Swagger"/>
-## Scraping
+
+## Local para scraper
+
+O site abaixo foi usado apra obter os dados:
 
 - https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops
 
-## Materias para acompanhamento
+## Links de auxílio
 
 - https://blog.geekhunter.com.br/como-fazer-um-web-scraping-python/
 
