@@ -1,6 +1,41 @@
 # Backend-Web-Scraping
 
-Backend baseado em node e typescript para capturar dados de notebooks do site.
+Backend baseado em node, typescript e sqlite para capturar dados de notebooks do site.
+
+# Iniciando
+
+Esteja certo que  você tenha intalado o npm e node.
+
+## Instalando pacotes
+
+Após fazer o clone do repositório, é necessário acessar a pasta da aplicação via terminal e o comando para instalação dos pacotes deve ser executado, conforme segue:
+
+```
+npm install
+```
+
+## Executando a aplicação
+
+Para executa a aplicação no mode de desenvolvimento, o comando abaixo deve ser executado no terminal.
+
+```
+npm run dev
+```
+
+Após a execução do comando, a aplicação estará disponível na porta 9000, com possibilidade de acesso tambem via borwser usando o endereço abaixo:
+```
+http://localhost:9000/
+```
+
+## Documentação
+
+A aplicação tem vários endpoints diferentes disponíveis, todos estes podem ser visualizados no endereço
+
+```
+http://localhost:9000/api-docs/
+```
+
+Alem de todas as rotas, schemas requisições e repostas, essa rota, através do "Try out", permite que você envie e receba requisições.
 
 ## Scraping
 
