@@ -126,6 +126,7 @@
                         "content": {
                             "application/json":{
                                 "schema": {
+                                    "id":"number",
                                     "type":"object",
                                     "$ref":"#/components/schemas/Token"
                                 }
