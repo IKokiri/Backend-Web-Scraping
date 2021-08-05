@@ -6,4 +6,6 @@ export interface IUserRepository {
     getLogin(email: string, senha: string): Promise<User | undefined>;
 
     getUserByEmail(email: string): Promise<User | undefined>;
+
+    getUserById(id: number): Promise<User | undefined>;
 }

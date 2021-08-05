@@ -5,6 +5,12 @@ import { IUserRepository } from './IUserRepository';
 class TypeormUserRepository implements IUserRepository {
     private repository: Repository<User> | undefined;
 
+    async getUserById(id: number): Promise<User | undefined> {
+        this.repository = getRepository(User);
+        const resultGetById = await this.repository.findOne({ id });
+        return resultGetById;
+    }
+
     async create(user: User): Promise<User | undefined> {
         this.repository = getRepository(User);
         const resultCreateUser = this.repository.save(user);
