@@ -196,6 +196,35 @@
                 }
             }
         },
+        "/notebook": {
+            "get": {
+                "summary": "Busca todos os notebooks",
+                "description": "Responsavel por buscar todos os notebooks cadastrados",
+                "tags": ["Notebook"],
+                "responses":{
+                    "200":{
+                        "description": "Found notebooks!",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/MessageClient"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description":"Notebook not found",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/MessageClient"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/notebook/{id}": {
             "put": {
                 "sumary":"Edita as informações de um notebook",
