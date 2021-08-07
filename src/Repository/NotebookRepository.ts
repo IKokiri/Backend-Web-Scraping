@@ -17,6 +17,30 @@ class NotebookRepository implements INotebookRepository {
         });
         return data;
     }
+
+    async update(
+        id: number,
+        notebook: Notebook,
+    ): Promise<Notebook | undefined> {
+        this.repository = getRepository(Notebook);
+        const notebookFetched = await this.repository.findOne(id);
+
+        if (notebookFetched === undefined) {
+            return undefined;
+        }
+
+        notebookFetched.description = notebook.description;
+        notebookFetched.img = notebook.img;
+        notebookFetched.model = notebook.model;
+        notebookFetched.price = notebook.price;
+        notebookFetched.ratting = notebook.ratting;
+        notebookFetched.idNotebook = notebook.idNotebook;
+        notebookFetched.linkDetails = notebook.linkDetails;
+
+        const result = await notebookFetched.save();
+
+        return result;
+    }
 }
 
 export default NotebookRepository;
