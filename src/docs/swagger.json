@@ -196,6 +196,42 @@
                 }
             }
         },
+        "/notebook/{id}": {
+            "put": {
+                "sumary":"Edita as informações de um notebook",
+                "description":"Edita as informações de um notebook especifico",
+                "tags": ["Notebook"],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in": "path",
+                        "description": "Id do notebook para ser alterado",
+                        "required": true
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json": {
+                            "schema": {                                
+                                "schema": "object",
+                                "$ref":"#/components/schemas/Notebook" 
+                            },
+                            "examples":{
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Updated"
+                    },
+                    "404":{
+                        "description":"Notebook not found"
+                    }
+                }
+
+            }
+        },
         "/order": {
             "post":{
                 "summary": "Adicionar pedido",
