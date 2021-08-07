@@ -6,4 +6,6 @@ export interface INotebookRepository {
     getId(id: number): Promise<Notebook | undefined>;
 
     update(id: number, notebook: Notebook): Promise<Notebook | undefined>;
+
+    getAll(): Promise<Notebook[] | undefined>;
 }

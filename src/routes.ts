@@ -27,4 +27,7 @@ router.post('/order', (req: Request, res: Response) => {
     return controller.createOrder(req, res);
 });
 
+router.get('/notebook', (req: Request, res: Response) => {
+    return controller.getAllNotebooks(req, res);
+});
 export default router;

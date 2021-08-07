@@ -41,6 +41,14 @@ class NotebookRepository implements INotebookRepository {
 
         return result;
     }
+
+    async getAll(): Promise<Notebook[] | undefined> {
+        this.repository = getRepository(Notebook);
+
+        const result = await this.repository.find();
+
+        return result;
+    }
 }
 
 export default NotebookRepository;

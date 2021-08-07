@@ -10,6 +10,7 @@ import getOnlyModel from '../Utils/GetonlyModel';
 import CreateManyNotebooks from '../Services/CreateManyNotebooks';
 import GetNotebook from './GetNotebook';
 import UpdateNotebook from './UpdateNotebook';
+import GetNotebooks from './GetNotebooks';
 
 class Controller {
     constructor(
@@ -19,6 +20,7 @@ class Controller {
         private createManyNotebooks: CreateManyNotebooks,
         private getNotebook: GetNotebook,
         private updateNotebook: UpdateNotebook,
+        private getNotebooks: GetNotebooks,
     ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
@@ -42,6 +44,12 @@ class Controller {
         };
 
         const message = await this.updateNotebook.update(id, notebook);
+        if (message.status) return res.status(200).send(message);
+        return res.status(404).json(message);
+    }
+
+    async getAllNotebooks(req: Request, res: Response): Promise<Response> {
+        const message = await this.getNotebooks.getNotebooks();
         if (message.status) return res.status(200).send(message);
         return res.status(404).json(message);
     }
