@@ -7,6 +7,10 @@ router.post('/user', (req: Request, res: Response) => {
     return controller.create(req, res);
 });
 
+router.put('/notebook/:id', (req: Request, res: Response) => {
+    return controller.update(req, res);
+});
+
 router.post('/user/login', (req: Request, res: Response) => {
     return controller.login(req, res);
 });

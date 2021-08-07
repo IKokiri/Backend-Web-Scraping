@@ -9,6 +9,7 @@ import sortNotebookPrice from '../Utils/SortNotebookPrice';
 import getOnlyModel from '../Utils/GetonlyModel';
 import CreateManyNotebooks from '../Services/CreateManyNotebooks';
 import GetNotebook from './GetNotebook';
+import UpdateNotebook from './UpdateNotebook';
 
 class Controller {
     constructor(
@@ -17,6 +18,7 @@ class Controller {
         private createUserOrder: CreateOrder,
         private createManyNotebooks: CreateManyNotebooks,
         private getNotebook: GetNotebook,
+        private updateNotebook: UpdateNotebook,
     ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
@@ -30,6 +32,18 @@ class Controller {
 
         if (!message.status) return res.status(400).json(message);
         return res.status(201).json(message);
+    }
+
+    async update(req: Request, res: Response): Promise<Response> {
+        const id = +req.params.id;
+
+        const notebook: Notebook = {
+            ...req.body,
+        };
+
+        const message = await this.updateNotebook.update(id, notebook);
+        if (message.status) return res.status(200).send(message);
+        return res.status(404).json(message);
     }
 
     async login(req: Request, res: Response): Promise<Response> {

@@ -15,6 +15,7 @@ import NotebookRepository from './Repository/NotebookRepository';
 import CreateManyNotebooks from './Services/CreateManyNotebooks';
 import CreateNotebook from './UseCase/CreateNotebook';
 import GetNotebook from './UseCase/GetNotebook';
+import UpdateNotebook from './UseCase/UpdateNotebook';
 
 const typeormUserRepository = new TypeormUserRepository();
 const typeormOrderRepository = new TypeormOrderRepository();
@@ -38,6 +39,8 @@ const createUser = new CreateUser(
     senhaValidationManual,
 );
 
+const updateNotebook = new UpdateNotebook(notebookRepository);
+
 const loginUser = new LoginUser(
     typeormUserRepository,
     token,
@@ -53,6 +56,7 @@ const controller = new Controller(
     createOrder,
     createManyNotebooks,
     getNotebook,
+    updateNotebook,
 );
 
 export default controller;
