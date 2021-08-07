@@ -13,7 +13,7 @@ class NotebookRepository implements INotebookRepository {
     async getId(id: number): Promise<Notebook | undefined> {
         this.repository = getRepository(Notebook);
         const data: Notebook | undefined = await this.repository.findOne({
-            where: { idNotebook: id },
+            where: { id },
         });
         return data;
     }
