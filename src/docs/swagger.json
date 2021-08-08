@@ -225,6 +225,29 @@
                 }
             }
         },
+        "/notebook/{id}/remove": {
+            "delete": {
+                "sumary": "Remove um notebook",
+                "description": "Responsável por remover um produto cadastrado",
+                "tags":["Notebook"],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"notebook id to be deleted",
+                        "required":true
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description": "Notebook deleted"
+                    },
+                    "404":{
+                        "description": "Notebook not Found"
+                    }
+                }
+            }
+        },
         "/notebook/{id}": {
             "put": {
                 "sumary":"Edita as informações de um notebook",
