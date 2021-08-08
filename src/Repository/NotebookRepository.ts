@@ -49,6 +49,20 @@ class NotebookRepository implements INotebookRepository {
 
         return result;
     }
+
+    async delete(id: number): Promise<Notebook | undefined> {
+        this.repository = getRepository(Notebook);
+
+        const notebookFetched = await this.repository.findOne(id);
+
+        if (notebookFetched === undefined) {
+            return undefined;
+        }
+
+        const result = await notebookFetched.remove();
+
+        return result;
+    }
 }
 
 export default NotebookRepository;

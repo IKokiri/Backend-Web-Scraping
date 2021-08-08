@@ -30,4 +30,9 @@ router.post('/order', (req: Request, res: Response) => {
 router.get('/notebook', (req: Request, res: Response) => {
     return controller.getAllNotebooks(req, res);
 });
+
+router.delete('/notebook/:id/remove', (req: Request, res: Response) => {
+    return controller.removeNotebook(req, res);
+});
+
 export default router;

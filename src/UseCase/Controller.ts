@@ -11,6 +11,7 @@ import CreateManyNotebooks from '../Services/CreateManyNotebooks';
 import GetNotebook from './GetNotebook';
 import UpdateNotebook from './UpdateNotebook';
 import GetNotebooks from './GetNotebooks';
+import DeleteNotebook from './DeleteNotebook';
 
 class Controller {
     constructor(
@@ -21,6 +22,7 @@ class Controller {
         private getNotebook: GetNotebook,
         private updateNotebook: UpdateNotebook,
         private getNotebooks: GetNotebooks,
+        private deleteNotebook: DeleteNotebook,
     ) {}
 
     async create(req: Request, res: Response): Promise<Response> {
@@ -44,6 +46,13 @@ class Controller {
         };
 
         const message = await this.updateNotebook.update(id, notebook);
+        if (message.status) return res.status(200).send(message);
+        return res.status(404).json(message);
+    }
+
+    async removeNotebook(req: Request, res: Response): Promise<Response> {
+        const id = +req.params.id;
+        const message = await this.deleteNotebook.delete(id);
         if (message.status) return res.status(200).send(message);
         return res.status(404).json(message);
     }
