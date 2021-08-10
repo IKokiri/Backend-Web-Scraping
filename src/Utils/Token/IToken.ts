@@ -1,5 +1,6 @@
-export interface IToken {
-    generate(email: string | undefined, senha: string | undefined): string;
+import User from '../../Entity/User';
+import { TokenParams } from '../../Types/TokemParams';
 
-    compare(id: number, token: string): Promise<boolean>;
+export interface IToken {
+    generate(user: User): TokenParams;
 }
