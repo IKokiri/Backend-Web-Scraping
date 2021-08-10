@@ -18,11 +18,12 @@ import GetNotebook from './UseCase/GetNotebook';
 import UpdateNotebook from './UseCase/UpdateNotebook';
 import GetNotebooks from './UseCase/GetNotebooks';
 import DeleteNotebook from './UseCase/DeleteNotebook';
+import Bcript from './Utils/Crypt/Bcrypt';
 
 const typeormUserRepository = new TypeormUserRepository();
 const typeormOrderRepository = new TypeormOrderRepository();
 const notebookRepository = new NotebookRepository();
-
+const bcriptCrypt = new Bcript();
 const emailValidationManual = new EmailValidationManual();
 const nomeValidationManual = new NomeValidationManual();
 const senhaValidationManual = new SenhaValidationManual();
@@ -40,6 +41,7 @@ const createUser = new CreateUser(
     emailValidationManual,
     nomeValidationManual,
     senhaValidationManual,
+    bcriptCrypt,
 );
 
 const updateNotebook = new UpdateNotebook(notebookRepository);

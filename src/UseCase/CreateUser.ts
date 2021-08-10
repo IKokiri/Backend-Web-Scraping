@@ -1,6 +1,7 @@
 import User from '../Entity/User';
 import { IUserRepository } from '../Repository/IUserRepository';
 import { MessageClient } from '../Types/Message';
+import { ICrypt } from '../Utils/Crypt/ICrypt';
 import { IEmailValidation } from '../Utils/Validation/IEmailValidation';
 import { INomeValidation } from '../Utils/Validation/INomeValidation';
 import { ISenhaValidation } from '../Utils/Validation/ISenhaValidation';
@@ -11,6 +12,7 @@ export class CreateUser {
         private emailValidation: IEmailValidation,
         private nomeValidation: INomeValidation,
         private senhaValidation: ISenhaValidation,
+        private cryptPassword: ICrypt,
     ) {}
 
     async create(data: User): Promise<MessageClient> {
@@ -67,7 +69,7 @@ export class CreateUser {
 
         user.nome = data.nome;
         user.email = data.email;
-        user.senha = data.senha;
+        user.senha = await this.cryptPassword.crypt(data.senha);
 
         const resultCreate = await this.userRepository.create(user);
 
