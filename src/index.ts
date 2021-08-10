@@ -53,6 +53,7 @@ const loginUser = new LoginUser(
     token,
     emailValidationManual,
     senhaValidationManual,
+    bcriptCrypt,
 );
 
 const createOrder = new CreateOrder(typeormOrderRepository, notebookRepository);

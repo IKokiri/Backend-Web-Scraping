@@ -20,9 +20,9 @@ class TypeormUserRepository implements IUserRepository {
         return resultPromisseCreateUser;
     }
 
-    async getLogin(email: string, senha: string): Promise<User | undefined> {
+    async getLogin(email: string): Promise<User | undefined> {
         this.repository = getRepository(User);
-        return this.repository.findOne({ where: { email, senha } });
+        return this.repository.findOne({ where: { email } });
     }
 
     async getUserByEmail(email: string): Promise<User | undefined> {

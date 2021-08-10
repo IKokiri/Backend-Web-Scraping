@@ -1,5 +1,6 @@
 import { IUserRepository } from '../Repository/IUserRepository';
 import { MessageClient } from '../Types/Message';
+import { ICrypt } from '../Utils/Crypt/ICrypt';
 import { IToken } from '../Utils/Token/IToken';
 import { IEmailValidation } from '../Utils/Validation/IEmailValidation';
 import { ISenhaValidation } from '../Utils/Validation/ISenhaValidation';
@@ -10,6 +11,7 @@ class LoginUser {
         private token: IToken,
         private emailValidation: IEmailValidation,
         private senhaValidation: ISenhaValidation,
+        private comparePasswordHash: ICrypt,
     ) {}
 
     async login(email: string, senha: string): Promise<MessageClient> {
@@ -31,7 +33,7 @@ class LoginUser {
             return messageValidateuserPassword;
         }
 
-        const promiseUser = this.userRepository.getLogin(email, senha);
+        const promiseUser = this.userRepository.getLogin(email);
 
         const user = await promiseUser
             .then(data => {
@@ -49,11 +51,24 @@ class LoginUser {
             return messageNotFoundUser;
         }
 
+        const resultComparePasswordHash =
+            await this.comparePasswordHash.compare(senha, user!.senha);
+
+        if (!resultComparePasswordHash) {
+            const messageNotFoundUser: MessageClient = {
+                status: false,
+                message: 'Login not found!',
+                data: '',
+            };
+
+            return messageNotFoundUser;
+        }
+
         const messageToken: MessageClient = {
             status: true,
             message: 'Login successfully',
             data: {
-                id: user.id,
+                id: user!.id,
                 token: this.token.generate(user?.email, user?.senha).toString(),
             },
         };
