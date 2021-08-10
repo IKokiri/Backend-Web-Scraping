@@ -27,7 +27,7 @@ class LoginUser {
         if (senha === undefined || !this.senhaValidation.senhaValidate(senha)) {
             const messageValidateuserPassword: MessageClient = {
                 status: false,
-                message: 'Password is not valid',
+                message: 'Password is not valid!',
                 data: '',
             };
             return messageValidateuserPassword;
