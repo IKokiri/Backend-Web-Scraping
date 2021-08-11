@@ -68,7 +68,7 @@ class LoginUser {
             status: true,
             message: 'Login successfully',
             data: {
-                token: this.token.generate(user),
+                token: this.token.generate(user).token,
             },
         };
 

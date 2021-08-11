@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import controller from '.';
+import controller from '../..';
 
 const router = Router();
 
@@ -9,10 +9,6 @@ router.post('/user', (req: Request, res: Response) => {
 
 router.put('/notebook/:id', (req: Request, res: Response) => {
     return controller.update(req, res);
-});
-
-router.post('/user/login', (req: Request, res: Response) => {
-    return controller.login(req, res);
 });
 
 router.get('/crawler', (req: Request, res: Response) => {

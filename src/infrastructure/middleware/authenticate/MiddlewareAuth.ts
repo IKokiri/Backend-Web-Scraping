@@ -8,7 +8,11 @@ export default function MiddlewareAuth(
 ) {
     const auth = req.headers.authorization;
     try {
-        const token = auth?.replace('Bearer', '').trim();
+        const token = auth
+            ?.replace('Bearer', '')
+            .replace('"', '')
+            .replace('"', '')
+            .trim();
         const data = jwt.verify(String(token), 'secret');
         next();
     } catch {
