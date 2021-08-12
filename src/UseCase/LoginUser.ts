@@ -44,7 +44,7 @@ class LoginUser {
         if (user === undefined) {
             const messageNotFoundUser: MessageClient = {
                 status: false,
-                message: 'Login not found!',
+                message: 'Login not founhd!',
                 data: '',
             };
 
@@ -57,7 +57,7 @@ class LoginUser {
         if (!resultComparePasswordHash) {
             const messageNotFoundUser: MessageClient = {
                 status: false,
-                message: 'Login not found!',
+                message: 'Login not foundk!',
                 data: '',
             };
 

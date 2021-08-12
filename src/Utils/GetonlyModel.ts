@@ -1,4 +1,4 @@
-import Notebook from '../User/Entity/Notebook';
+import Notebook from '../Entity/Notebook';
 
 const getOnlyModel = (
     notebooks: Array<Notebook>,
