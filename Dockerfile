@@ -10,7 +10,7 @@ COPY tsconfig.json ./
 COPY . .
 
 RUN npm install
-RUN bpm build
+RUN npm run build
 
 EXPOSE 9000
 
