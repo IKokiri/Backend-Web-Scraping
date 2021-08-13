@@ -15,8 +15,10 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
  * database connector
  */
 createConnection({
-    type: 'sqlite',
-    database: 'backendwebscraping.sqlite',
+    type: 'mongodb',
+    host: 'localhost',
+    port: 27017,
+    database: 'scraper',
     synchronize: true,
     logging: false,
     entities: [Notebook, User, UserOrder],
