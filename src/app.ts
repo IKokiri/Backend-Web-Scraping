@@ -16,7 +16,7 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
  */
 createConnection({
     type: 'mongodb',
-    host: 'localhost',
+    host: 'webscraper-mongodb',
     port: 27017,
     database: 'scraper',
     synchronize: true,
