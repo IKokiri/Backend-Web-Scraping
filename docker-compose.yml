@@ -1,6 +1,25 @@
 version: "3.9"
 services:
-  web:
+  backend:
     build: .
     ports:
       - "9000:9000"
+    networks:
+        - scraper-network
+  uncleben_mongodb:
+    container_name: ${CONTAINER_NAME:-webscraper-mongodb}
+    image: mongo
+    restart: always
+    environment:
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD:-root}
+    networks:
+        - scraper-network
+    ports:
+        - "27017:27017"
+    volumes:
+        - ../data/db:/data/db
+networks:
+  scraper-network:
+    name: scraper-network
+    driver: bridge
