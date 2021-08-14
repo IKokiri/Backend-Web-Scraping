@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../../Entity/User';
+import User from '../../entity/User';
 import { TokenParams } from '../../Types/TokemParams';
 import { IToken } from './IToken';
 

@@ -1,4 +1,4 @@
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 import { INotebookRepository } from '../Repository/INotebookRepository';
 
 class CreateNotebook {

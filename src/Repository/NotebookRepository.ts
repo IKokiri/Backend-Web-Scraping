@@ -1,5 +1,5 @@
 import { getRepository, Repository } from 'typeorm';
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 import { INotebookRepository } from './INotebookRepository';
 
 class NotebookRepository implements INotebookRepository {

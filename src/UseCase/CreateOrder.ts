@@ -1,4 +1,4 @@
-import UserOrder from '../Entity/UserOrder';
+import UserOrder from '../entity/UserOrder';
 import { INotebookRepository } from '../Repository/INotebookRepository';
 import { IOrderRepository } from '../Repository/IOrderRepository';
 import { NotebookOrderDTO } from '../Types/NotebookOrderDTO';

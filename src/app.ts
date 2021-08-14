@@ -4,9 +4,9 @@ import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
 
 // Controllers routes
-import Notebook from './Entity/Notebook';
-import User from './Entity/User';
-import UserOrder from './Entity/UserOrder';
+import Notebook from './entity/Notebook';
+import User from './entity/User';
+import UserOrder from './entity/UserOrder';
 import authRouter from './routes/auth/routes';
 import publicRouter from './routes/public/routes';
 import swaggerDocs from './docs/swagger.json';
@@ -15,15 +15,8 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
 /**
  * database connector
  */
-createConnection({
-    type: 'sqlite',
-    database: 'backendwebscraping.sqlite',
-    synchronize: false,
-    logging: true,
-    entities: [Notebook, User, UserOrder],
-    migrations: ['./src/migration/**/*.ts'],
-    subscribers: ['./src/subscriber/**/*.ts'],
-});
+
+const connection = await createConnection();
 
 const app = express();
 app.use(cors());

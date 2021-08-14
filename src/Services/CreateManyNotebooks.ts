@@ -1,4 +1,4 @@
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 import CreateNotebook from '../UseCase/CreateNotebook';
 import { ICreateManyNotebooks } from './ICreateManyNotebooks';
 

@@ -1,7 +1,7 @@
 import cheerio from 'cheerio';
 import getPage from '../API/getPage';
-import Notebook from '../Entity/Notebook';
-import NotebookDetail from '../Entity/NotebookDetail';
+import Notebook from '../entity/Notebook';
+import NotebookDetail from '../entity/NotebookDetail';
 
 const scraperDetail = async (notebook: Notebook): Promise<NotebookDetail> => {
     const html = await getPage(notebook.linkDetails);

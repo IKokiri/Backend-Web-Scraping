@@ -1,4 +1,4 @@
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 
 export interface INotebookRepository {
     create(notebook: Notebook): void;
