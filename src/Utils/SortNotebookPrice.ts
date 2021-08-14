@@ -1,4 +1,4 @@
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 
 const sortNotebookPrice = (notebooks: Array<Notebook>): Array<Notebook> => {
     const sortedNotebooks: Array<Notebook> = notebooks.sort((obj1, obj2) => {
