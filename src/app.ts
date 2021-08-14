@@ -17,7 +17,7 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
 createConnection({
     type: 'sqlite',
     database: 'backendwebscraping.sqlite',
-    synchronize: true,
+    synchronize: false,
     logging: false,
     entities: [Notebook, User, UserOrder],
 });
