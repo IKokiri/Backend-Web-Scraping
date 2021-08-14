@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import CreateUser from './CreateUser';
-import User from '../Entity/User';
+import User from '../entity/User';
 import LoginUser from './LoginUser';
 import CreateOrder from './CreateOrder';
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 import scraper from '../Services/webScreaperScraper';
 import sortNotebookPrice from '../Utils/SortNotebookPrice';
 import getOnlyModel from '../Utils/GetonlyModel';

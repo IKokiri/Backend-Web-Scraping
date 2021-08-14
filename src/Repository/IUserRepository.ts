@@ -1,4 +1,4 @@
-import User from '../Entity/User';
+import User from '../entity/User';
 
 export interface IUserRepository {
     create(user: User): void;

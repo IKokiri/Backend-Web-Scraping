@@ -9,7 +9,7 @@ class UserOrder extends BaseEntity {
     idProduct!: number;
 
     @Column()
-    idUser!: number;
+    idUser!: string;
 
     @Column()
     quantity!: number;

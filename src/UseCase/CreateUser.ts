@@ -1,4 +1,4 @@
-import User from '../Entity/User';
+import User from '../entity/User';
 import { IUserRepository } from '../Repository/IUserRepository';
 import { MessageClient } from '../Types/Message';
 import { ICrypt } from '../Utils/Crypt/ICrypt';

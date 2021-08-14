@@ -1,5 +1,5 @@
 import cheerio from 'cheerio';
-import Notebook from '../Entity/Notebook';
+import Notebook from '../entity/Notebook';
 import FormatWebScraperIo from '../Utils/FormatWebScraperIo';
 import getPage from '../API/getPage';
 import getIdWebScraper from '../Utils/GetIdWebScraper';

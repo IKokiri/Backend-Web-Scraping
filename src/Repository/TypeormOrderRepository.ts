@@ -1,5 +1,5 @@
 import { getRepository, Repository } from 'typeorm';
-import UserOrder from '../Entity/UserOrder';
+import UserOrder from '../entity/UserOrder';
 import { IOrderRepository } from './IOrderRepository';
 
 class TypeormOrderRepository implements IOrderRepository {

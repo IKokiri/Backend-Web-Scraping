@@ -11,7 +11,7 @@ import {
 @Unique(['idNotebook'])
 class Notebook extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    id!: string;
 
     @Column()
     description!: string;
