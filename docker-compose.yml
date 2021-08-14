@@ -6,14 +6,18 @@ services:
       - "9000:9000"
     networks:
         - scraper-network
-  uncleben_mongodb:
-    container_name: ${CONTAINER_NAME:-webscraper-mongodb}
-    image: mongo
+  scraper_pg:
+    container_name: ${CONTAINER_NAME:-webscraper-pg}
+    image: postgres
     restart: always
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123qwe
+      POSTGRES_DB: scraper
     networks:
         - scraper-network
     ports:
-        - "27017:27017"
+        - "5432:5432"
     volumes:
         - ../data/db:/data/db
 networks:

@@ -11,17 +11,18 @@ import authRouter from './routes/auth/routes';
 import publicRouter from './routes/public/routes';
 import swaggerDocs from './docs/swagger.json';
 import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareAuth';
+
 /**
  * database connector
  */
 createConnection({
-    type: 'mongodb',
-    host: 'webscraper-mongodb',
-    port: 27017,
-    database: 'scraper',
-    synchronize: true,
-    logging: false,
+    type: 'sqlite',
+    database: 'backendwebscraping.sqlite',
+    synchronize: false,
+    logging: true,
     entities: [Notebook, User, UserOrder],
+    migrations: ['./src/migration/**/*.ts'],
+    subscribers: ['./src/subscriber/**/*.ts'],
 });
 
 const app = express();

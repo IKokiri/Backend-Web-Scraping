@@ -4,7 +4,6 @@ import {
     Column,
     BaseEntity,
     Unique,
-    Double,
 } from 'typeorm';
 
 @Entity()

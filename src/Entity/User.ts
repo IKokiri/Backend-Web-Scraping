@@ -10,7 +10,7 @@ import {
 @Unique(['email'])
 class User extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    id!: string;
 
     @Column()
     nome!: string;
