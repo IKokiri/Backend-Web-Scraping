@@ -10,7 +10,7 @@ import {
 @Entity()
 @Unique(['idNotebook'])
 class Notebook extends BaseEntity {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id!: string;
 
     @Column()

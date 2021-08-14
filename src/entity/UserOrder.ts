@@ -2,7 +2,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 class UserOrder extends BaseEntity {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id!: number;
 
     @Column()
