@@ -4,7 +4,7 @@
    "description": "WebScraping",
    "main": "app.ts",
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "ts-node dist/server.js",
       "lint": "eslint . --ext .ts",
       "build": "tsc",
       "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
