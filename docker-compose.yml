@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  backend:
+    build: .
+    ports:
+      - "9000:9000"
+    networks:
+        - scraper-network
+  scraper_pg:
+    container_name: ${CONTAINER_NAME:-webscraper-pg}
+    image: postgres
+    restart: always
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123qwe
+      POSTGRES_DB: scraper
+    networks:
+        - scraper-network
+    ports:
+        - "5432:5432"
+    volumes:
+        - ../data/db:/data/db
+networks:
+  scraper-network:
+    name: scraper-network
+    driver: bridge
