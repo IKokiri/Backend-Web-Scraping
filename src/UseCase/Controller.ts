@@ -39,7 +39,7 @@ class Controller {
     }
 
     async update(req: Request, res: Response): Promise<Response> {
-        const id = +req.params.id;
+        const { id } = req.params;
 
         const notebook: Notebook = {
             ...req.body,
@@ -51,7 +51,7 @@ class Controller {
     }
 
     async removeNotebook(req: Request, res: Response): Promise<Response> {
-        const id = +req.params.id;
+        const { id } = req.params;
         const message = await this.deleteNotebook.delete(id);
         if (message.status) return res.status(200).send(message);
         return res.status(404).json(message);
@@ -90,7 +90,7 @@ class Controller {
     };
 
     crawlerDetails = async (req: Request, res: Response): Promise<Response> => {
-        const idNotebook = +req.params.id;
+        const idNotebook = req.params.id;
 
         const message = await this.getNotebook.getNotebookById(idNotebook);
         return res.status(200).json(message);

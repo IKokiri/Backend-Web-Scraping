@@ -4,7 +4,7 @@ import { MessageClient } from '../Types/Message';
 class GetNotebook {
     constructor(private notebookRepository: INotebookRepository) {}
 
-    async getNotebookById(id: number): Promise<MessageClient> {
+    async getNotebookById(id: string): Promise<MessageClient> {
         const notebook = await this.notebookRepository.getId(id);
         if (notebook === undefined) {
             const messageResultGetNotebook: MessageClient = {

@@ -4,7 +4,7 @@ import { MessageClient } from '../Types/Message';
 class DeleteNotebook {
     constructor(private deleteNotebook: INotebookRepository) {}
 
-    async delete(id: number): Promise<MessageClient> {
+    async delete(id: string): Promise<MessageClient> {
         const resultDeleteNotebook = await this.deleteNotebook.delete(id);
 
         if (resultDeleteNotebook === undefined) {

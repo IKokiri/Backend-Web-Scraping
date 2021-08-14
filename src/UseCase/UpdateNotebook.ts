@@ -5,7 +5,7 @@ import { MessageClient } from '../Types/Message';
 class UpdateNotebook {
     constructor(private updateNotebook: INotebookRepository) {}
 
-    async update(id: number, notebook: Notebook): Promise<MessageClient> {
+    async update(id: string, notebook: Notebook): Promise<MessageClient> {
         const resultUpdateNotebook = await this.updateNotebook.update(
             id,
             notebook,

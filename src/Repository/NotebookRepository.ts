@@ -10,7 +10,7 @@ class NotebookRepository implements INotebookRepository {
         this.repository.save(notebook);
     }
 
-    async getId(id: number): Promise<Notebook | undefined> {
+    async getId(id: string): Promise<Notebook | undefined> {
         this.repository = getRepository(Notebook);
         const data: Notebook | undefined = await this.repository.findOne({
             where: { id },
@@ -19,7 +19,7 @@ class NotebookRepository implements INotebookRepository {
     }
 
     async update(
-        id: number,
+        id: string,
         notebook: Notebook,
     ): Promise<Notebook | undefined> {
         this.repository = getRepository(Notebook);
@@ -50,7 +50,7 @@ class NotebookRepository implements INotebookRepository {
         return result;
     }
 
-    async delete(id: number): Promise<Notebook | undefined> {
+    async delete(id: string): Promise<Notebook | undefined> {
         this.repository = getRepository(Notebook);
 
         const notebookFetched = await this.repository.findOne(id);

@@ -10,7 +10,7 @@ class CreateOrder {
     ) {}
 
     async create(
-        idUser: number,
+        idUser: string,
         notebooks: Array<NotebookOrderDTO>,
     ): Promise<void> {
         for (let i = 0; i < notebooks.length; i += 1) {

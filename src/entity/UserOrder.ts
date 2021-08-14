@@ -3,10 +3,10 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 class UserOrder extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    id!: number;
+    id!: string;
 
     @Column()
-    idProduct!: number;
+    idProduct!: string;
 
     @Column()
     idUser!: string;

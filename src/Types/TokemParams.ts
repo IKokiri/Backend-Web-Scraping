@@ -1,4 +1,4 @@
 export type TokenParams = {
-    id: number;
+    id: string;
     token: string;
 };

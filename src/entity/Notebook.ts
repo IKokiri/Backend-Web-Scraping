@@ -29,7 +29,7 @@ class Notebook extends BaseEntity {
     ratting!: string;
 
     @Column()
-    idNotebook!: number;
+    idNotebook!: string;
 
     @Column()
     linkDetails!: string;

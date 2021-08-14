@@ -1,4 +1,4 @@
 export type NotebookOrderDTO = {
-    id: number;
+    id: string;
     quantity: number;
 };

@@ -7,5 +7,5 @@ export interface IUserRepository {
 
     getUserByEmail(email: string): Promise<User | undefined>;
 
-    getUserById(id: number): Promise<User | undefined>;
+    getUserById(id: string): Promise<User | undefined>;
 }
