@@ -3,10 +3,6 @@ import controller from '../..';
 
 const router = Router();
 
-router.post('/user', (req: Request, res: Response) => {
-    return controller.create(req, res);
-});
-
 router.put('/notebook/:id', (req: Request, res: Response) => {
     return controller.update(req, res);
 });
