@@ -1,15 +1,15 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
     BaseEntity,
-    Unique,
+    Column,
+    Entity,
+    Generated,
+    PrimaryGeneratedColumn,
 } from 'typeorm';
 
 @Entity()
-@Unique(['idNotebook'])
 class Notebook extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
+    @Generated('uuid')
     id!: string;
 
     @Column()
