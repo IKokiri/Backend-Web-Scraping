@@ -8,7 +8,7 @@ class InitialUserOrder1628971814333 implements MigrationInterface {
                 columns: [
                     {
                         name: 'id',
-                        type: 'string',
+                        type: 'varchar',
                         generationStrategy: 'uuid',
                         isPrimary: true,
                         default: 'uuid_generate_v4()',
@@ -19,7 +19,7 @@ class InitialUserOrder1628971814333 implements MigrationInterface {
                     },
                     {
                         name: 'idUser',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'quantity',

@@ -8,22 +8,22 @@ class InitialNotebook1628970341470 implements MigrationInterface {
                 columns: [
                     {
                         name: 'id',
-                        type: 'string',
+                        type: 'varchar',
                         generationStrategy: 'uuid',
                         isPrimary: true,
                         default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'description',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'img',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'model',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'price',
@@ -31,7 +31,7 @@ class InitialNotebook1628970341470 implements MigrationInterface {
                     },
                     {
                         name: 'ratting',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'idNotebook',
@@ -39,7 +39,7 @@ class InitialNotebook1628970341470 implements MigrationInterface {
                     },
                     {
                         name: 'linkDetails',
-                        type: 'string',
+                        type: 'varchar',
                     },
                 ],
             }),

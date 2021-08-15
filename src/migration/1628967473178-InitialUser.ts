@@ -8,22 +8,22 @@ class InitialUser1628967473178 implements MigrationInterface {
                 columns: [
                     {
                         name: 'id',
-                        type: 'string',
+                        type: 'varchar',
                         generationStrategy: 'uuid',
                         isPrimary: true,
                         default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'nome',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'email',
-                        type: 'string',
+                        type: 'varchar',
                     },
                     {
                         name: 'senha',
-                        type: 'string',
+                        type: 'varchar',
                     },
                 ],
             }),
