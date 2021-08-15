@@ -6,7 +6,9 @@ import { IToken } from './IToken';
 class TokenJWT implements IToken {
     generate(user: User): TokenParams {
         const { id } = user;
-        const token = jwt.sign({ id }, 'secret', { expiresIn: '1d' });
+        const token = jwt.sign({ id }, `${process.env.BACKEND_PORT}`, {
+            expiresIn: '1d',
+        });
 
         const tokenParams: TokenParams = {
             id,

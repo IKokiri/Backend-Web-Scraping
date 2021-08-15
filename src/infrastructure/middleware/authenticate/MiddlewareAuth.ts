@@ -13,7 +13,7 @@ export default function MiddlewareAuth(
             .replace('"', '')
             .replace('"', '')
             .trim();
-        const data = jwt.verify(String(token), 'secret');
+        const data = jwt.verify(String(token), `${process.env.BACKEND_PORT}`);
         next();
     } catch {
         res.status(401).send();
