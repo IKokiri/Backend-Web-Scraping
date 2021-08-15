@@ -11,7 +11,6 @@ class InitialUser1628967473178 implements MigrationInterface {
                         type: 'varchar',
                         generationStrategy: 'uuid',
                         isPrimary: true,
-                        default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'nome',

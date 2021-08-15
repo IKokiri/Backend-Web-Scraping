@@ -11,7 +11,6 @@ class InitialNotebook1628970341470 implements MigrationInterface {
                         type: 'varchar',
                         generationStrategy: 'uuid',
                         isPrimary: true,
-                        default: 'uuid_generate_v4()',
                     },
                     {
                         name: 'description',
@@ -35,7 +34,7 @@ class InitialNotebook1628970341470 implements MigrationInterface {
                     },
                     {
                         name: 'idNotebook',
-                        type: 'int',
+                        type: 'varchar',
                     },
                     {
                         name: 'linkDetails',
