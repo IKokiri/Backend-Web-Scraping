@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-  scraper_pg:
-    container_name: ${CONTAINER_NAME:-webscraper-pg}
+  scraperpg:
+    container_name: ${CONTAINER_NAME:-scraperpg}
     image: postgres
     restart: always
     environment: 
@@ -9,17 +9,19 @@ services:
       POSTGRES_PASSWORD: 123qwe
       POSTGRES_DB: scraper
     networks:
-      - scraper-network
+        - scraper-network
     ports:
-      - "5432:5432"
+        - "5432:5432"
     volumes:
-      - ../data/db:/data/db
+        - ../data/db:/data/db
   backend:
     build: .
+    depends_on:
+      - scraperpg
     ports:
       - "9000:9000"
     networks:
-        - scraper-network
+      - scraper-network
 networks:
   scraper-network:
     name: scraper-network

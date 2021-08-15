@@ -17,7 +17,7 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
 createConnection({
     type: 'postgres',
     database: 'scraper',
-    host: 'webscraper-pg',
+    host: 'scraperpg',
     port: 5432,
     username: 'postgres',
     password: '123qwe',
