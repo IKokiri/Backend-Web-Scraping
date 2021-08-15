@@ -6,7 +6,7 @@ class CreateNotebook {
 
     async create(notebook: Notebook): Promise<void> {
         const resultGetNotebook = await this.notebookRepository.getId(
-            notebook.idNotebook,
+            notebook.id,
         );
 
         if (resultGetNotebook === undefined)
