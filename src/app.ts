@@ -14,17 +14,11 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
 /**
  * database connector
  */
-createConnection({
-    type: 'postgres',
-    database: 'scraper',
-    host: 'scraperpg',
-    port: 5432,
-    username: 'postgres',
-    password: '123qwe',
-    synchronize: false,
-    logging: false,
-    entities: [Notebook, User, UserOrder],
-});
+const connection = async () => {
+    await createConnection();
+};
+
+connection();
 
 const app = express();
 app.use(cors());

@@ -1,10 +1,6 @@
 {
-   "type": "postgres",   
-   "database": "scraper",
-   "host": "scraperpg",
-   "port": 5432,
-   "username": "postgres",
-   "password": "123qwe",
+   "type": "sqlite",   
+   "database": "scraper.sqlite",
    "synchronize": false,
    "logging": false,
    "entities": [
