@@ -15,8 +15,12 @@ import MiddlewareAuth from './infrastructure/middleware/authenticate/MiddlewareA
  * database connector
  */
 createConnection({
-    type: 'sqlite',
-    database: 'backendwebscraping.sqlite',
+    type: 'postgres',
+    database: 'scraper',
+    host: 'webscraper-pg',
+    port: 5432,
+    username: 'postgres',
+    password: '123qwe',
     synchronize: false,
     logging: false,
     entities: [Notebook, User, UserOrder],

@@ -1,7 +1,11 @@
 {
-   "type": "sqlite",   
-   "database": "backendwebscraping.sqlite",
-   "synchronize": true,
+   "type": "postgres",   
+   "database": "scraper",
+   "host": "webscraper-pg",
+   "port": 5432,
+   "username": "postgres",
+   "password": "123qwe",
+   "synchronize": false,
    "logging": false,
    "entities": [
       "src/entity/**/*.ts"
