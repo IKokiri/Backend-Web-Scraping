@@ -2,7 +2,7 @@ version: "3.7"
 services:
   scraperpg:
     container_name: ${CONTAINER_NAME:-scraperpg}
-    image: postgres
+    image: postgres:11
     restart: always
     environment: 
       POSTGRES_USER: postgres
