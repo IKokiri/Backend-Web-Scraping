@@ -4,12 +4,14 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     Unique,
+    Generated,
 } from 'typeorm';
 
 @Entity()
 @Unique(['email'])
 class User extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
+    @Generated('uuid')
     id!: string;
 
     @Column()

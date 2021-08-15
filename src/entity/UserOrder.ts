@@ -1,8 +1,15 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+    BaseEntity,
+    Column,
+    Entity,
+    PrimaryGeneratedColumn,
+    Generated,
+} from 'typeorm';
 
 @Entity()
 class UserOrder extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
+    @Generated('uuid')
     id!: string;
 
     @Column()
