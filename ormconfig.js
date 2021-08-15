@@ -1,7 +1,7 @@
 module.exports = {
     type: 'postgres',
     database: 'scraper',
-    host: 'webscraper-pg',
+    host: 'scraperpg',
     port: 5432,
     username: 'postgres',
     password: '123qwe',

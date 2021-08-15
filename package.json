@@ -25,6 +25,7 @@
       "bcryptjs": "^2.4.3",
       "cheerio": "^1.0.0-rc.10",
       "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
       "eslint": "^7.31.0",
       "eslint-config-airbnb-base": "^14.2.1",
       "eslint-config-prettier": "^8.3.0",
