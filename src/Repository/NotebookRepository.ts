@@ -18,6 +18,14 @@ class NotebookRepository implements INotebookRepository {
         return data;
     }
 
+    async getOriginId(idNotebook: string): Promise<Notebook | undefined> {
+        this.repository = getRepository(Notebook);
+        const data: Notebook | undefined = await this.repository.findOne({
+            where: { idNotebook },
+        });
+        return data;
+    }
+
     async update(
         id: string,
         notebook: Notebook,
