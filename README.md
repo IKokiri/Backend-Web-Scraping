@@ -2,7 +2,28 @@
 
 Backend baseado em node, typescript e sqlite para capturar dados de notebooks do site.
 
-# Iniciando
+# Iniciando com Docker
+
+Esteja certo que você tenha o docker e o docker compose. Após a confirmação o seguintes passos podem ser executados em seu terminal:
+
+Clone o repositório para uma pasta de sua preferência.
+
+Dentro do diretório existe um arquivo de nome `.env.example`, estas são as variáveis de ambiente para execução da aplicação. Após renomear o arquivo, altere seu conteúdo de acordo com as váriáveis desejáveis. É altamente recomendado que apenas os valores das chaves `BACKEND_PORT`, `DB_DATABASE` e `SECRET` sejam alterados.
+
+Acesse o repositório clonado e execute o comando abaixo.
+
+```
+docker-compose up
+```
+
+Por padrão, o aplicativo está configurado para iniciar no seguinte endereço:
+`` `
+http://localhost:9000/
+`` `
+
+Informações sobre como consumir a aplicação pode ser verificado na seção `Documentação`, mais abaixo.
+
+# Iniciando com Package Manager
 
 Esteja certo que  você tenha intalado o npm e node.
 
@@ -27,7 +48,7 @@ Após a execução do comando, a aplicação estará disponível na porta 9000, 
 http://localhost:9000/
 ```
 
-## Documentação
+# Documentação
 
 A aplicação tem vários endpoints diferentes disponíveis, todos estes podem ser visualizados no endereço
 
@@ -42,13 +63,13 @@ Além de todas as rotas, schemas requisições e repostas, essa rota, através d
 
  <img src="https://github.com/IKokiri/Backend-Web-Scraping/blob/main/src/imgs/swagger1.png" alt="Swagger"/>
 
-## Local para scraper
+# Local para scraper
 
 O site abaixo foi usado apra obter os dados:
 
 - https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops
 
-## Links de auxílio
+# Links de auxílio
 
 - https://blog.geekhunter.com.br/como-fazer-um-web-scraping-python/
 
