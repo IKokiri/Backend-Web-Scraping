@@ -37,10 +37,17 @@ npm install
 
 ## Executando a aplicação
 
-Para executa a aplicação no mode de desenvolvimento, o comando abaixo deve ser executado no terminal.
+Para executar a aplicação, dois passos são necessários.
+
+O primeiro dele é referente ao Build da aplicação, para isso, o comando abaixo deve ser executado:
+```
+npm run build
+```
+
+O segundo passo é referente à execução da aplicação e pode ser feito executando o comando abaixo
 
 ```
-npm run dev
+npm start
 ```
 
 Após a execução do comando, a aplicação estará disponível na porta 9000, com possibilidade de acesso tambem via borwser usando o endereço abaixo:
