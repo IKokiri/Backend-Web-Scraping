@@ -144,6 +144,7 @@
                 "summary": "Captura informações",
                 "decription": "Responsável por capturar informações de sites",
                 "tags": ["Crawler"],
+                "security":[{"bearerAuth":[]}],
                 "RequestBody": {
                 },
                 "responses":{
@@ -162,7 +163,11 @@
                     },
                     "404": {
                         "description": "data not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized access!"
                     }
+
                     
                 }
             }            
@@ -172,6 +177,7 @@
                 "summary": "Busca item",
                 "description": "Responsável de buscar o item requisitado",
                 "tags": ["Crawler"],
+                "security":[{"bearerAuth":[]}],
                 "parameters":[
                     {
                         "name":"id",
@@ -201,6 +207,7 @@
                 "summary": "Busca todos os notebooks",
                 "description": "Responsavel por buscar todos os notebooks cadastrados",
                 "tags": ["Notebook"],
+                "security":[{"bearerAuth":[]}],
                 "responses":{
                     "200":{
                         "description": "Found notebooks!",
@@ -230,6 +237,7 @@
                 "sumary": "Remove um notebook",
                 "description": "Responsável por remover um produto cadastrado",
                 "tags":["Notebook"],
+                "security":[{"bearerAuth":[]}],
                 "parameters":[
                     {
                         "name":"id",
@@ -253,6 +261,7 @@
                 "sumary":"Edita as informações de um notebook",
                 "description":"Edita as informações de um notebook especifico",
                 "tags": ["Notebook"],
+                "security":[{"bearerAuth":[]}],
                 "parameters":[
                     {
                         "name":"id",
@@ -289,6 +298,7 @@
                 "summary": "Adicionar pedido",
                 "description": "Adiciona uma lista de produtos escolhidos pelo usuário",
                 "tags": ["Order"],
+                "security":[{"bearerAuth":[]}],
                 "requestBody":{
                     "content":{
                         "application/json": {
@@ -423,6 +433,13 @@
                         "type":"object"                        
                     }
                 }
+            }
+        },
+        "securitySchemes":{
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
