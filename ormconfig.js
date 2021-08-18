@@ -7,12 +7,16 @@ module.exports = {
     password: process.env.DB_PASSWORD,
     synchronize: process.env.DB_SYNCHRONIZE,
     logging: process.env.DB_LOGGING,
-    entities: ['dist/entity/**/*.js'],
-    migrations: ['dist/migration/**/*.js'],
-    subscribers: ['dist/subscriber/**/*.js'],
+    entities: [`${process.env.FOLDER}/entity/**/*.${process.env.EXTENSION}`],
+    migrations: [
+        `${process.env.FOLDER}/migration/**/*.${process.env.EXTENSION}`,
+    ],
+    subscribers: [
+        `${process.env.FOLDER}/subscriber/**/*.${process.env.EXTENSION}`,
+    ],
     cli: {
-        entitiesDir: 'dist/entity',
-        migrationsDir: 'dist/migration',
-        subscribersDir: 'dist/subscriber',
+        entitiesDir: `${process.env.FOLDER}/entity`,
+        migrationsDir: `${process.env.FOLDER}/migration`,
+        subscribersDir: `${process.env.FOLDER}/subscriber`,
     },
 };
