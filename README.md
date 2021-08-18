@@ -50,7 +50,7 @@ O segundo passo é referente à execução da aplicação e pode ser feito execu
 npm start
 ```
 
-Após a execução do comando, a aplicação estará disponível na porta 9000, com possibilidade de acesso tambem via borwser usando o endereço abaixo:
+Após a execução do comando, a aplicação estará disponível na porta 9000, com possibilidade de acesso tambem via browser usando o endereço abaixo:
 ```
 http://localhost:9000/
 ```
